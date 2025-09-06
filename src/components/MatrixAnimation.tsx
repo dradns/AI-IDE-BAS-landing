@@ -133,15 +133,25 @@ const MatrixAnimation = () => {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0"
-      style={{ 
-        pointerEvents: 'none',
-        opacity: 0.2,
-        zIndex: -1
-      }}
-    />
+    <>
+      <canvas
+        ref={canvasRef}
+        className="fixed inset-0"
+        style={{ 
+          pointerEvents: 'none',
+          opacity: 0.5,
+          zIndex: -1
+        }}
+      />
+      {/* Gradient overlay for vertical fade */}
+      <div 
+        className="fixed inset-0 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to bottom, transparent 0%, transparent 40%, rgba(249, 250, 251, 0.3) 60%, rgba(249, 250, 251, 0.7) 80%, rgba(249, 250, 251, 1) 100%)',
+          zIndex: -1
+        }}
+      />
+    </>
   );
 };
 
