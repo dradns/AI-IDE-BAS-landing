@@ -20,13 +20,15 @@ const MatrixAnimation = () => {
 
     // Matrix characters
     const chars = ['0', '1', '@', '#'];
-    const fontSize = 16;
-    const columns = Math.floor(canvas.width / fontSize);
+    const fontSize = 18;
+    const spacing = 24; // Wider spacing
+    const columns = Math.floor(canvas.width / spacing);
+    const rows = Math.floor(canvas.height / spacing);
     const drops: number[] = [];
 
-    // Initialize drops with wave pattern
+    // Initialize drops with sequential delay for smooth wave effect
     for (let i = 0; i < columns; i++) {
-      drops[i] = -Math.sin(i * 0.1) * 50 - Math.random() * 200;
+      drops[i] = -(i * 3); // Sequential start with delay
     }
 
     let time = 0;
@@ -34,43 +36,50 @@ const MatrixAnimation = () => {
     let animationId: number;
 
     const draw = () => {
-      time += 0.02;
+      time += 0.01;
       
-      // Clear canvas with slight fade
-      ctx.fillStyle = 'rgba(249, 250, 251, 0.03)';
+      // Clear canvas with fade effect
+      ctx.fillStyle = 'rgba(249, 250, 251, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.font = `${fontSize}px 'Courier New', monospace`;
-      ctx.textAlign = 'left';
+      ctx.font = `bold ${fontSize}px 'Courier New', monospace`;
+      ctx.textAlign = 'center';
 
       for (let i = 0; i < drops.length; i++) {
         const char = chars[Math.floor(Math.random() * chars.length)];
         
-        // Use theme colors - brighter
+        // Use theme colors - brighter and more opaque
         const colors = [
-          'hsla(245, 75%, 65%, 0.9)',  // primary
-          'hsla(185, 85%, 55%, 0.8)',  // accent  
-          'hsla(245, 85%, 75%, 0.7)',  // primary-glow
+          'hsla(245, 75%, 65%, 0.95)',  // primary
+          'hsla(185, 85%, 55%, 0.9)',   // accent  
+          'hsla(245, 85%, 75%, 0.85)',  // primary-glow
         ];
         
-        ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+        ctx.fillStyle = colors[i % colors.length]; // Cycle through colors
 
-        // Wave pattern with diagonal movement
-        const waveOffset = Math.sin(time + i * 0.2) * 3;
-        const x = i * fontSize + waveOffset;
-        const y = drops[i] * fontSize;
+        // Smooth sequential movement
+        const x = i * spacing + spacing / 2;
+        const y = (drops[i] + time * 30) % (canvas.height + 100);
 
-        if (y > 0) {
+        if (y > 0 && y < canvas.height) {
           ctx.fillText(char, x, y);
         }
 
-        // Reset drop when it goes off screen with wave delay
-        if (y > canvas.height && Math.random() > 0.99) {
-          drops[i] = -Math.sin(i * 0.1) * 50 - 50;
+        // Create trailing effect - draw previous characters with less opacity
+        for (let trail = 1; trail <= 5; trail++) {
+          const trailY = y - trail * spacing;
+          if (trailY > 0 && trailY < canvas.height) {
+            const trailOpacity = (6 - trail) / 6;
+            const trailColor = colors[i % colors.length].replace(/0\.\d+\)$/, `${trailOpacity * 0.4})`);
+            ctx.fillStyle = trailColor;
+            ctx.fillText(chars[(trail + Math.floor(time * 10)) % chars.length], x, trailY);
+          }
         }
 
-        // Slower movement
-        drops[i] += 0.5;
+        // Reset when completely off screen
+        if (drops[i] > canvas.height / spacing + 10) {
+          drops[i] = -(i * 2) - 10;
+        }
       }
 
       animationId = requestAnimationFrame(draw);
