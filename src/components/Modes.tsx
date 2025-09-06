@@ -20,7 +20,7 @@ const modes = [
   {
     id: "architect",
     icon: Building,
-    color: "bg-purple-500"
+    color: "bg-blue-500"
   },
   {
     id: "reviewer",
@@ -59,6 +59,8 @@ const Modes = () => {
         return language === 'ru' ? 'Режим бизнес-аналитика' : 'Business Analyst Mode';
       case "system-analyst":
         return language === 'ru' ? 'Режим системного аналитика' : 'System Analyst Mode';
+      case "architect":
+        return language === 'ru' ? 'Режим архитектора' : 'Architect Mode';
       default:
         return t.modes.businessAnalyst;
     }
@@ -70,6 +72,8 @@ const Modes = () => {
         return t.modes.features;
       case "system-analyst":
         return t.modes.systemAnalystFeatures;
+      case "architect":
+        return t.modes.architectFeatures;
       default:
         return t.modes.features;
     }
@@ -107,7 +111,8 @@ so that <expected result/benefit>.
 - [ ] User can perform the action
 - [ ] System processes the request correctly
 - [ ] Result meets expectations`)
-    : `@startuml
+    : selectedMode === "system-analyst" 
+    ? `@startuml
 title Процесс установки расширения AI IDE BAS
 
 actor Пользователь
@@ -116,7 +121,27 @@ participant "VS Code" as VSCode
 Пользователь -> VSCode: Нажимает "Установить"
 VSCode -> VSCode: Устанавливает расширение
 VSCode -> Пользователь: Дает суперсилу
-@enduml`;
+@enduml`
+    : selectedMode === "architect"
+    ? `@startuml
+title Архитектура системы
+
+package "Frontend" {
+  [React App]
+  [UI Components]
+}
+
+package "Backend" {
+  [API Gateway]
+  [User Service]
+  [Data Service]
+}
+
+database "Database" {
+  [PostgreSQL]
+}
+@enduml`
+    : `# Режим по умолчанию`;
 
   return (
     <section id="modes" className="pt-2 pb-20 bg-gradient-to-b from-secondary/10 to-secondary/30 relative z-10">

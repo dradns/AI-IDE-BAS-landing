@@ -40,6 +40,10 @@ export const translations = {
         'Создание спецификации в формате OpenAPI',
         'Создание спецификации в формате AsyncAPI',
         'Создание нефункциональных требований'
+      ],
+      architectFeatures: [
+        'Диаграмма контекста',
+        'Диаграмма компонентов'
       ]
     },
     features: {
@@ -132,6 +136,10 @@ export const translations = {
         'OpenAPI specification creation',
         'AsyncAPI specification creation',
         'Non-functional requirements creation'
+      ],
+      architectFeatures: [
+        'Context diagram',
+        'Component diagram'
       ]
     },
     features: {
