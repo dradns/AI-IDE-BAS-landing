@@ -21,6 +21,19 @@ const Hero = () => {
           {/* Badge */}
           
           
+          {/* Logos row */}
+          <div className="flex items-center justify-center gap-8 mb-8">
+            <div className="w-12 h-12 flex items-center justify-center">
+              <img src="/src/assets/vscode-logo.svg" alt="VS Code" className="w-full h-full" />
+            </div>
+            <div className="w-12 h-12 flex items-center justify-center">
+              <img src="/src/assets/cursor-logo.svg" alt="Cursor" className="w-full h-full" />
+            </div>
+            <div className="w-12 h-12 flex items-center justify-center">
+              <img src="/src/assets/windsurf-logo.svg" alt="WindSurf" className="w-full h-full" />
+            </div>
+          </div>
+          
           {/* Main heading */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
             <span className="text-gradient">AI-расширение</span>
