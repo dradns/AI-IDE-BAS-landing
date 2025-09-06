@@ -29,33 +29,23 @@ const MatrixAnimation = () => {
       drops[i] = Math.random() * -500;
     }
 
-    // Get CSS custom property values
-    const getColor = (property: string) => {
-      const value = getComputedStyle(document.documentElement).getPropertyValue(property);
-      return `hsl(${value})`;
-    };
-
     const draw = () => {
-      // Semi-transparent background for trail effect
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      // Clear with very subtle overlay
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.03)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.font = `${fontSize}px monospace`;
+      ctx.font = `${fontSize}px 'Courier New', monospace`;
 
       for (let i = 0; i < drops.length; i++) {
         const char = chars[Math.floor(Math.random() * chars.length)];
         
-        // Use different colors from design system
-        const colors = [
-          getColor('--primary'),
-          getColor('--accent'),
-          getColor('--primary-glow'),
-        ];
-        
-        // Make some characters brighter
-        const opacity = Math.random() > 0.7 ? 1 : 0.3;
+        // Use theme colors directly
+        const colors = ['245, 75%, 65%', '185, 85%, 55%', '245, 85%, 75%'];
         const color = colors[Math.floor(Math.random() * colors.length)];
-        ctx.fillStyle = color.replace(')', `, ${opacity})`).replace('hsl(', 'hsla(');
+        
+        // Vary opacity for depth effect
+        const opacity = Math.random() > 0.8 ? 0.8 : 0.2;
+        ctx.fillStyle = `hsla(${color}, ${opacity})`;
 
         const x = i * fontSize;
         const y = drops[i] * fontSize;
@@ -71,7 +61,7 @@ const MatrixAnimation = () => {
       }
     };
 
-    const interval = setInterval(draw, 50);
+    const interval = setInterval(draw, 80);
 
     return () => {
       clearInterval(interval);
