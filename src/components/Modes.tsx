@@ -74,7 +74,7 @@ so that <expected result/benefit>.
 - [ ] Result meets expectations`;
 
   return (
-    <section id="modes" className="py-20 bg-secondary/30">
+    <section id="modes" className="pt-8 pb-20 bg-secondary/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
