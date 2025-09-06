@@ -2,14 +2,18 @@ import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { translations } from "@/lib/translations";
+import MatrixAnimation from "./MatrixAnimation";
 const Hero = () => {
   const {
     language
   } = useLanguage();
   const t = translations[language];
   return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Matrix Animation Background */}
+      <MatrixAnimation />
+      
       {/* Background decoration */}
-      <div className="absolute inset-0 gradient-feature opacity-50" />
+      <div className="absolute inset-0 gradient-feature opacity-30" />
       <div className="absolute top-20 left-10 w-32 h-32 rounded-full gradient-primary opacity-20 blur-2xl animate-pulse" />
       <div className="absolute bottom-20 right-10 w-40 h-40 rounded-full bg-accent/30 blur-2xl animate-pulse delay-700" />
       
