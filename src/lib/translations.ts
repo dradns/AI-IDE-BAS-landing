@@ -32,6 +32,14 @@ export const translations = {
         'Критерии приемки',
         'Формирование глоссария проекта',
         'Сбор информации о заинтересованных сторонах проекта'
+      ],
+      systemAnalystFeatures: [
+        'Описание backend логики',
+        'Создание ER-диаграммы',
+        'Создание Sequence диаграммы',
+        'Создание спецификации в формате OpenAPI',
+        'Создание спецификации в формате AsyncAPI',
+        'Создание нефункциональных требований'
       ]
     },
     features: {
@@ -116,6 +124,14 @@ export const translations = {
         'Acceptance Criteria',
         'Project glossary formation',
         'Project stakeholder information gathering'
+      ],
+      systemAnalystFeatures: [
+        'Backend logic description',
+        'ER diagram creation',
+        'Sequence diagram creation',
+        'OpenAPI specification creation',
+        'AsyncAPI specification creation',
+        'Non-functional requirements creation'
       ]
     },
     features: {
