@@ -36,7 +36,7 @@ const Hero = () => {
           
           {/* Main heading */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            <span className="text-gradient flex items-center gap-3">
+            <span className="text-gradient inline-flex items-center justify-center gap-3">
               AI-расширение
               <img src="/extention.png" alt="Extension" className="w-12 h-12 md:w-16 md:h-16 object-contain" />
             </span>
