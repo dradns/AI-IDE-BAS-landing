@@ -43,8 +43,9 @@ const MatrixAnimation = () => {
     const draw = () => {
       time += 0.01;
       
-      // Clear canvas completely each frame
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Clear canvas with slight fade effect
+      ctx.fillStyle = 'rgba(249, 250, 251, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.font = `bold ${fontSize}px 'Courier New', monospace`;
       ctx.textAlign = 'center';
@@ -53,66 +54,60 @@ const MatrixAnimation = () => {
         const x = i * fontSize + fontSize / 2;
         
         // Update character trail for this column
-        if (drops[i] >= 0) {
+        if (drops[i] > 0) {
           const currentRow = Math.floor(drops[i]);
           
-          // Add new characters as we progress
-          while (columnChars[i].length <= currentRow + 15) {
-            const baseChar = baseChars[Math.floor(Math.random() * baseChars.length)];
-            columnChars[i].push(baseChar);
-            charAges[i].push(0);
+          // Add new character at head of trail
+          if (currentRow < canvas.height / fontSize + 10) {
+            while (columnChars[i].length <= currentRow) {
+              const baseChar = baseChars[Math.floor(Math.random() * baseChars.length)];
+              columnChars[i].push(baseChar);
+              charAges[i].push(0);
+            }
           }
         }
         
-        // Draw the character trail with fade effect
-        const trailLength = 20;
+        // Draw the entire character trail for this column
         for (let j = 0; j < columnChars[i].length; j++) {
           const y = j * fontSize;
           
-          // Skip if outside screen bounds
-          if (y < -fontSize || y > canvas.height + fontSize) continue;
+          if (y > canvas.height + fontSize) continue;
+          if (j > drops[i] + 15) continue; // Limit trail length
           
           let char = columnChars[i][j];
           charAges[i][j]++;
           
-          // Transform characters over time
+          // Transform 0->@ and 1->## after some time
           if (charAges[i][j] > 30) {
             if (char === '0') char = '@';
             if (char === '1') char = '#';
           }
           
-          // Calculate position relative to current drop head
+          // Calculate opacity based on position relative to head
           const distanceFromHead = Math.abs(j - drops[i]);
+          let opacity = Math.max(0.1, 1 - distanceFromHead * 0.1);
           
-          // Create fading effect from top to bottom
-          const fadeFromTop = Math.min(1, y / (fontSize * 5)); // Fade in first 5 rows
-          const fadeFromBottom = j > drops[i] ? Math.max(0, 1 - (distanceFromHead / trailLength)) : 1;
-          
-          let opacity = fadeFromTop * fadeFromBottom;
-          
-          if (opacity <= 0.05) continue;
-          
-          // Color based on position
-          if (j >= drops[i] - 1 && j <= drops[i] + 1) {
-            // Head - brightest
-            ctx.fillStyle = `hsla(245, 85%, 80%, ${opacity})`;
-          } else if (j > drops[i]) {
-            // Trail - accent color
-            ctx.fillStyle = `hsla(185, 85%, 60%, ${opacity * 0.8})`;
+          // Brightest at the head - светлее на пол тона
+          if (distanceFromHead < 1) {
+            opacity = 1;
+            ctx.fillStyle = 'hsla(245, 85%, 80%, 1)'; // Bright primary +5% lightness
+          } else if (distanceFromHead < 3) {
+            ctx.fillStyle = `hsla(185, 85%, 60%, ${opacity})`; // Accent +5% lightness
           } else {
-            // Above head - dimmer
-            ctx.fillStyle = `hsla(245, 75%, 70%, ${opacity * 0.6})`;
+            ctx.fillStyle = `hsla(245, 75%, 70%, ${opacity * 0.6})`; // Dimmer primary +5% lightness
           }
           
-          ctx.fillText(char, x, y);
+          if (y > 0 && y < canvas.height + fontSize) {
+            ctx.fillText(char, x, y);
+          }
         }
         
-        // Move drop down
+        // Move drop down smoothly and consistently - медленнее
         drops[i] += 0.2;
         
-        // Reset when trail has passed through screen
-        if (drops[i] > (canvas.height / fontSize) + trailLength) {
-          drops[i] = -Math.random() * 10;
+        // Reset when completely off screen
+        if (drops[i] * fontSize > canvas.height + 200) {
+          drops[i] = -Math.random() * 50 - 10;
           columnChars[i] = [];
           charAges[i] = [];
         }
