@@ -1,0 +1,42 @@
+import { Button } from "@/components/ui/button";
+
+const Header = () => {
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
+      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
+            <span className="text-white font-bold text-lg">AI</span>
+          </div>
+          <span className="text-xl font-bold text-foreground">AI IDE BAS</span>
+        </div>
+        
+        <nav className="hidden md:flex items-center gap-8">
+          <a href="#modes" className="text-muted-foreground hover:text-foreground transition-smooth">
+            Modes
+          </a>
+          <a href="#features" className="text-muted-foreground hover:text-foreground transition-smooth">
+            Features
+          </a>
+          <a href="#get-started" className="text-muted-foreground hover:text-foreground transition-smooth">
+            Get Started
+          </a>
+          <a href="#community" className="text-muted-foreground hover:text-foreground transition-smooth">
+            Community
+          </a>
+        </nav>
+        
+        <div className="flex items-center gap-4">
+          <Button variant="outline" size="sm">
+            RU
+          </Button>
+          <Button variant="hero" size="lg">
+            Try Now
+          </Button>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
