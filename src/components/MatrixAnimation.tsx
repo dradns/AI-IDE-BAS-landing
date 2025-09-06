@@ -13,10 +13,9 @@ const MatrixAnimation = () => {
     // Set canvas size
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight + 600; // Extend height to cover modes section
-      // Force canvas to cover full width and extended height
+      canvas.height = window.innerHeight;
       canvas.style.width = '100vw';
-      canvas.style.height = `${window.innerHeight + 600}px`;
+      canvas.style.height = '100vh';
     };
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
@@ -136,11 +135,13 @@ const MatrixAnimation = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0"
+      className="fixed inset-0"
       style={{ 
         pointerEvents: 'none',
         opacity: 0.4,
-        zIndex: 1
+        zIndex: 0,
+        width: '100vw',
+        height: '100vh'
       }}
     />
   );

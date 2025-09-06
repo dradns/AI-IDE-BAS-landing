@@ -9,15 +9,8 @@ const Hero = () => {
   } = useLanguage();
   const t = translations[language];
   return <section className="relative flex items-center justify-center overflow-hidden pt-20 pb-10">
-      {/* Matrix Animation Background - extends to cover modes section */}
-      <div className="absolute inset-0 w-full" style={{ height: 'calc(100vh + 400px)' }}>
-        <MatrixAnimation />
-        {/* Gradient overlay for smooth fade */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background pointer-events-none" 
-             style={{ 
-               background: 'linear-gradient(to bottom, transparent 0%, transparent 60%, rgba(249, 250, 251, 0.3) 80%, rgba(249, 250, 251, 0.7) 90%, rgba(249, 250, 251, 1) 100%)' 
-             }} />
-      </div>
+      {/* Matrix Animation Background */}
+      <MatrixAnimation />
       
       {/* Background decoration */}
       <div className="absolute top-20 left-10 w-32 h-32 rounded-full gradient-primary opacity-20 blur-2xl animate-pulse" />
