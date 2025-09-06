@@ -23,14 +23,24 @@ const Hero = () => {
           
           {/* Logos row */}
           <div className="flex items-center justify-center gap-8 mb-8">
-            <div className="w-12 h-12 flex items-center justify-center">
-              <img src="/vscode-logo.svg" alt="VS Code" className="w-full h-full" />
+            <div className="w-12 h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
+              <svg role="img" viewBox="0 0 24 24" className="w-full h-full fill-current text-primary">
+                <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/>
+              </svg>
             </div>
-            <div className="w-12 h-12 flex items-center justify-center">
-              <img src="/cursor-logo.svg" alt="Cursor" className="w-full h-full" />
+            <div className="w-12 h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
+              <svg viewBox="0 0 24 24" className="w-full h-full fill-current text-primary">
+                <path d="M12 2L22 7L12 12L2 7L12 2Z"/>
+                <path d="M2 17L12 22L22 17L12 12L2 17Z"/>
+                <path d="M2 12L12 17L22 12L12 7L2 12Z" opacity="0.7"/>
+              </svg>
             </div>
-            <div className="w-12 h-12 flex items-center justify-center">
-              <img src="/windsurf-logo.svg" alt="WindSurf" className="w-full h-full" />
+            <div className="w-12 h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
+              <svg viewBox="0 0 24 24" className="w-full h-full fill-current text-primary">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
+                <path d="M2 12L12 17L22 12L12 7L2 12Z"/>
+                <path d="M2 17L12 22L22 17L12 12L2 17Z"/>
+              </svg>
             </div>
           </div>
           
