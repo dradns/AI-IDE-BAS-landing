@@ -44,9 +44,9 @@ const MatrixAnimation = () => {
         
         // Use theme colors - primary, accent, primary-glow
         const colors = [
-          'hsla(245, 75%, 65%, 0.6)',  // primary
-          'hsla(185, 85%, 55%, 0.4)',  // accent  
-          'hsla(245, 85%, 75%, 0.3)',  // primary-glow
+          'hsla(245, 75%, 65%, 0.8)',  // primary
+          'hsla(185, 85%, 55%, 0.7)',  // accent  
+          'hsla(245, 85%, 75%, 0.6)',  // primary-glow
         ];
         
         ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
@@ -84,7 +84,7 @@ const MatrixAnimation = () => {
       className="absolute inset-0"
       style={{ 
         pointerEvents: 'none',
-        opacity: 0.15,
+        opacity: 0.4,
         zIndex: 1
       }}
     />
