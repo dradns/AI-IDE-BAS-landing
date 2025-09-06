@@ -13,10 +13,10 @@ const MatrixAnimation = () => {
     // Set canvas size
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      // Force canvas to cover full width
+      canvas.height = window.innerHeight + 600; // Extend height to cover modes section
+      // Force canvas to cover full width and extended height
       canvas.style.width = '100vw';
-      canvas.style.height = '100vh';
+      canvas.style.height = `${window.innerHeight + 600}px`;
     };
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
@@ -83,14 +83,22 @@ const MatrixAnimation = () => {
             if (char === '1') char = '#';
           }
           
-          // Calculate opacity based on position relative to head
+          // Calculate opacity based on position relative to head and vertical position
           const distanceFromHead = Math.abs(j - drops[i]);
-          let opacity = Math.max(0.1, 1 - distanceFromHead * 0.1);
+          const verticalPosition = y / canvas.height; // 0 at top, 1 at bottom
+          
+          // Create fade effect towards bottom
+          let verticalFade = 1;
+          if (verticalPosition > 0.7) {
+            verticalFade = Math.max(0, (1 - verticalPosition) / 0.3);
+          }
+          
+          let opacity = Math.max(0.1, (1 - distanceFromHead * 0.1) * verticalFade);
           
           // Brightest at the head - еще светлее
           if (distanceFromHead < 1) {
-            opacity = 1;
-            ctx.fillStyle = 'hsla(245, 85%, 90%, 1)'; // Bright primary +15% lightness
+            opacity = opacity;
+            ctx.fillStyle = `hsla(245, 85%, 90%, ${opacity})`; // Bright primary +15% lightness
           } else if (distanceFromHead < 3) {
             ctx.fillStyle = `hsla(185, 85%, 75%, ${opacity})`; // Accent +20% lightness
           } else {
