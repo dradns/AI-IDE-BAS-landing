@@ -37,12 +37,12 @@ const Hero = () => {
           {/* Main heading */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
             <span className="text-gradient inline-flex items-center justify-center gap-3">
-              AI-расширение
+              {t.hero.extension}
               <img src="/extention.png" alt="Extension" className="w-12 h-12 md:w-16 md:h-16 object-contain" />
             </span>
           </h1>
           <p className="text-4xl md:text-5xl text-foreground font-bold text-center whitespace-nowrap -mt-2">
-            для аналитиков и архитекторов решений
+            {t.hero.description}
           </p>
           
           {/* Subtitle */}
