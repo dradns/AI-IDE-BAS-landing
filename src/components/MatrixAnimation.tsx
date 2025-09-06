@@ -34,7 +34,7 @@ const MatrixAnimation = () => {
     let animationId: number;
 
     const draw = () => {
-      time += 0.02;
+      time += 0.005;
       
       // Clear canvas with slight fade
       ctx.fillStyle = 'rgba(249, 250, 251, 0.03)';
@@ -70,7 +70,7 @@ const MatrixAnimation = () => {
         }
 
         // Slower movement
-        drops[i] += 0.5;
+        drops[i] += 0.2;
       }
 
       animationId = requestAnimationFrame(draw);
