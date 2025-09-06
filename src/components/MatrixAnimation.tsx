@@ -136,7 +136,7 @@ const MatrixAnimation = () => {
     <>
       <canvas
         ref={canvasRef}
-        className="absolute inset-0"
+        className="fixed inset-0"
         style={{ 
           pointerEvents: 'none',
           opacity: 0.5,
@@ -145,7 +145,7 @@ const MatrixAnimation = () => {
       />
       {/* Gradient overlay for vertical fade */}
       <div 
-        className="absolute inset-0 pointer-events-none"
+        className="fixed inset-0 pointer-events-none"
         style={{
           background: 'linear-gradient(to bottom, transparent 0%, transparent 40%, rgba(249, 250, 251, 0.3) 60%, rgba(249, 250, 251, 0.7) 80%, rgba(249, 250, 251, 1) 100%)',
           zIndex: -1
