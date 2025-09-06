@@ -18,59 +18,96 @@ const MatrixAnimation = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Matrix characters
-    const chars = ['0', '1', '@', '#'];
-    const fontSize = 16;
+    // Matrix characters - simplified for transformation
+    const baseChars = ['0', '1'];
+    const transformChars = ['@', '#'];
+    const fontSize = 18;
     const columns = Math.floor(canvas.width / fontSize);
     const drops: number[] = [];
+    const columnChars: string[][] = [];
+    const charAges: number[][] = [];
 
-    // Initialize drops with wave pattern
+    // Initialize drops and character trails
     for (let i = 0; i < columns; i++) {
-      drops[i] = -Math.sin(i * 0.1) * 50 - Math.random() * 200;
+      drops[i] = -Math.random() * 100;
+      columnChars[i] = [];
+      charAges[i] = [];
     }
 
+    let animationId: number;
     let time = 0;
 
-    let animationId: number;
-
     const draw = () => {
-      time += 0.005;
+      time += 0.01;
       
-      // Clear canvas with slight fade
-      ctx.fillStyle = 'rgba(249, 250, 251, 0.03)';
+      // Clear canvas with slight fade effect
+      ctx.fillStyle = 'rgba(249, 250, 251, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.font = `${fontSize}px 'Courier New', monospace`;
-      ctx.textAlign = 'left';
+      ctx.font = `bold ${fontSize}px 'Courier New', monospace`;
+      ctx.textAlign = 'center';
 
-      for (let i = 0; i < drops.length; i++) {
-        const char = chars[Math.floor(Math.random() * chars.length)];
+      for (let i = 0; i < columns; i++) {
+        const x = i * fontSize + fontSize / 2;
         
-        // Use theme colors - brighter
-        const colors = [
-          'hsla(245, 75%, 65%, 0.9)',  // primary
-          'hsla(185, 85%, 55%, 0.8)',  // accent  
-          'hsla(245, 85%, 75%, 0.7)',  // primary-glow
-        ];
+        // Update character trail for this column
+        if (drops[i] > 0) {
+          const currentRow = Math.floor(drops[i]);
+          
+          // Add new character at head of trail
+          if (currentRow < canvas.height / fontSize + 10) {
+            while (columnChars[i].length <= currentRow) {
+              const baseChar = baseChars[Math.floor(Math.random() * baseChars.length)];
+              columnChars[i].push(baseChar);
+              charAges[i].push(0);
+            }
+          }
+        }
         
-        ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
-
-        // Wave pattern with diagonal movement
-        const waveOffset = Math.sin(time + i * 0.2) * 3;
-        const x = i * fontSize + waveOffset;
-        const y = drops[i] * fontSize;
-
-        if (y > 0) {
-          ctx.fillText(char, x, y);
+        // Draw the entire character trail for this column
+        for (let j = 0; j < columnChars[i].length; j++) {
+          const y = j * fontSize;
+          
+          if (y > canvas.height + fontSize) continue;
+          if (j > drops[i] + 15) continue; // Limit trail length
+          
+          let char = columnChars[i][j];
+          charAges[i][j]++;
+          
+          // Transform 0->@ and 1->## after some time
+          if (charAges[i][j] > 30) {
+            if (char === '0') char = '@';
+            if (char === '1') char = '#';
+          }
+          
+          // Calculate opacity based on position relative to head
+          const distanceFromHead = Math.abs(j - drops[i]);
+          let opacity = Math.max(0.1, 1 - distanceFromHead * 0.1);
+          
+          // Brightest at the head
+          if (distanceFromHead < 1) {
+            opacity = 1;
+            ctx.fillStyle = 'hsla(245, 85%, 75%, 1)'; // Bright primary
+          } else if (distanceFromHead < 3) {
+            ctx.fillStyle = `hsla(185, 85%, 55%, ${opacity})`; // Accent
+          } else {
+            ctx.fillStyle = `hsla(245, 75%, 65%, ${opacity * 0.6})`; // Dimmer primary
+          }
+          
+          if (y > 0 && y < canvas.height + fontSize) {
+            ctx.fillText(char, x, y);
+          }
         }
-
-        // Reset drop when it goes off screen with wave delay
-        if (y > canvas.height && Math.random() > 0.99) {
-          drops[i] = -Math.sin(i * 0.1) * 50 - 50;
+        
+        // Move drop down smoothly and consistently
+        drops[i] += 0.3;
+        
+        // Reset when completely off screen
+        if (drops[i] * fontSize > canvas.height + 200) {
+          drops[i] = -Math.random() * 50 - 10;
+          columnChars[i] = [];
+          charAges[i] = [];
         }
-
-        // Slower movement
-        drops[i] += 0.2;
       }
 
       animationId = requestAnimationFrame(draw);
