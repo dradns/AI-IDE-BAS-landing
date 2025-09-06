@@ -24,7 +24,7 @@ const Hero = () => {
           {/* Logos row */}
           <div className="flex items-center justify-center gap-8 mb-8">
             <div className="w-12 h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <img src="/vscode-logo.svg" alt="VS Code" className="w-full h-full" />
+              <img src="/vscode-logo.png" alt="VS Code" className="w-full h-full object-contain" />
             </div>
             <div className="w-12 h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
               <img src="/cursor-logo.png" alt="Cursor" className="w-full h-full object-contain" />
