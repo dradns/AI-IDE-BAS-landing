@@ -25,7 +25,7 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
             <span className="text-gradient">AI-расширение</span>
           </h1>
-          <p className="text-3xl md:text-4xl text-foreground font-bold text-center whitespace-nowrap">
+          <p className="text-4xl md:text-5xl text-foreground font-bold text-center whitespace-nowrap">
             для аналитиков и архитекторов решений
           </p>
           
