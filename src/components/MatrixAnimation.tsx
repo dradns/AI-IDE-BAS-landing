@@ -14,6 +14,9 @@ const MatrixAnimation = () => {
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      // Force canvas to cover full width
+      canvas.style.width = '100vw';
+      canvas.style.height = '100vh';
     };
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
@@ -84,14 +87,14 @@ const MatrixAnimation = () => {
           const distanceFromHead = Math.abs(j - drops[i]);
           let opacity = Math.max(0.1, 1 - distanceFromHead * 0.1);
           
-          // Brightest at the head
+          // Brightest at the head - светлее на пол тона
           if (distanceFromHead < 1) {
             opacity = 1;
-            ctx.fillStyle = 'hsla(245, 85%, 75%, 1)'; // Bright primary
+            ctx.fillStyle = 'hsla(245, 85%, 80%, 1)'; // Bright primary +5% lightness
           } else if (distanceFromHead < 3) {
-            ctx.fillStyle = `hsla(185, 85%, 55%, ${opacity})`; // Accent
+            ctx.fillStyle = `hsla(185, 85%, 60%, ${opacity})`; // Accent +5% lightness
           } else {
-            ctx.fillStyle = `hsla(245, 75%, 65%, ${opacity * 0.6})`; // Dimmer primary
+            ctx.fillStyle = `hsla(245, 75%, 70%, ${opacity * 0.6})`; // Dimmer primary +5% lightness
           }
           
           if (y > 0 && y < canvas.height + fontSize) {
