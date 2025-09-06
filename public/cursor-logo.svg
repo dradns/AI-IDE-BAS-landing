@@ -1,5 +1,1 @@
-<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 2L22 7L12 12L2 7L12 2Z" fill="#007ACC"/>
-<path d="M2 17L12 22L22 17L12 12L2 17Z" fill="#007ACC"/>
-<path d="M2 12L12 17L22 12L12 7L2 12Z" fill="#007ACC" opacity="0.7"/>
-</svg>
+{"error":"[NOT_FOUND] File @lobehub/icons-static-svg@1.65.0/icons/cursor-color.svg not found"}
