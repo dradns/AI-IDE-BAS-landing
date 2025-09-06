@@ -13,7 +13,6 @@ const Hero = () => {
       <MatrixAnimation />
       
       {/* Background decoration */}
-      <div className="absolute inset-0 gradient-feature opacity-30" />
       <div className="absolute top-20 left-10 w-32 h-32 rounded-full gradient-primary opacity-20 blur-2xl animate-pulse" />
       <div className="absolute bottom-20 right-10 w-40 h-40 rounded-full bg-accent/30 blur-2xl animate-pulse delay-700" />
       
