@@ -87,14 +87,14 @@ const MatrixAnimation = () => {
           const distanceFromHead = Math.abs(j - drops[i]);
           let opacity = Math.max(0.1, 1 - distanceFromHead * 0.1);
           
-          // Brightest at the head - светлее на пол тона
+          // Brightest at the head - еще светлее
           if (distanceFromHead < 1) {
             opacity = 1;
-            ctx.fillStyle = 'hsla(245, 85%, 80%, 1)'; // Bright primary +5% lightness
+            ctx.fillStyle = 'hsla(245, 85%, 90%, 1)'; // Bright primary +15% lightness
           } else if (distanceFromHead < 3) {
-            ctx.fillStyle = `hsla(185, 85%, 60%, ${opacity})`; // Accent +5% lightness
+            ctx.fillStyle = `hsla(185, 85%, 75%, ${opacity})`; // Accent +20% lightness
           } else {
-            ctx.fillStyle = `hsla(245, 75%, 70%, ${opacity * 0.6})`; // Dimmer primary +5% lightness
+            ctx.fillStyle = `hsla(245, 75%, 85%, ${opacity * 0.6})`; // Dimmer primary +20% lightness
           }
           
           if (y > 0 && y < canvas.height + fontSize) {
