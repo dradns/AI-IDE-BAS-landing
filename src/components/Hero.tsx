@@ -24,22 +24,18 @@ const Hero = () => {
           {/* Logos row */}
           <div className="flex items-center justify-center gap-8 mb-8">
             <div className="w-12 h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <svg role="img" viewBox="0 0 24 24" className="w-full h-full fill-current text-primary">
-                <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/>
+              <img src="/vscode-logo.svg" alt="VS Code" className="w-full h-full" />
+            </div>
+            <div className="w-12 h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
+              <svg viewBox="0 0 24 24" className="w-full h-full fill-current text-primary">
+                <path d="M12 2C13.1 2 14 2.9 14 4V8C14 9.1 13.1 10 12 10S10 9.1 10 8V4C10 2.9 10.9 2 12 2M21 11H20V10C20 8.9 19.1 8 18 8S16 8.9 16 10V11H15C14.4 11 14 11.4 14 12V20C14 20.6 14.4 21 15 21H21C21.6 21 22 20.6 22 20V12C22 11.4 21.6 11 21 11M18.5 16C18.5 16.8 17.8 17.5 17 17.5S15.5 16.8 15.5 16S16.2 14.5 17 14.5S18.5 15.2 18.5 16M18 11V10C18 9.4 17.6 9 17 9S16 9.4 16 10V11H18Z"/>
               </svg>
             </div>
             <div className="w-12 h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
               <svg viewBox="0 0 24 24" className="w-full h-full fill-current text-primary">
-                <path d="M12 2L22 7L12 12L2 7L12 2Z"/>
-                <path d="M2 17L12 22L22 17L12 12L2 17Z"/>
-                <path d="M2 12L12 17L22 12L12 7L2 12Z" opacity="0.7"/>
-              </svg>
-            </div>
-            <div className="w-12 h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <svg viewBox="0 0 24 24" className="w-full h-full fill-current text-primary">
-                <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
-                <path d="M2 12L12 17L22 12L12 7L2 12Z"/>
-                <path d="M2 17L12 22L22 17L12 12L2 17Z"/>
+                <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
+                <path d="M6 17L7.05 20.05L10 19L7.05 17.95L6 17Z"/>
+                <path d="M18 5L19.05 8.05L22 7L19.05 5.95L18 5Z"/>
               </svg>
             </div>
           </div>
