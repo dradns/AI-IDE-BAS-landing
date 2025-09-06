@@ -2,13 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { translations } from "@/lib/translations";
-
 const Hero = () => {
-  const { language } = useLanguage();
+  const {
+    language
+  } = useLanguage();
   const t = translations[language];
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 gradient-feature opacity-50" />
       <div className="absolute top-20 left-10 w-32 h-32 rounded-full gradient-primary opacity-20 blur-2xl animate-pulse" />
@@ -17,10 +16,7 @@ const Hero = () => {
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="text-center max-w-4xl mx-auto space-y-8">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
-            <span className="w-2 h-2 rounded-full gradient-primary animate-pulse" />
-            {t.hero.badge}
-          </div>
+          
           
           {/* Main heading */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
@@ -50,8 +46,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
