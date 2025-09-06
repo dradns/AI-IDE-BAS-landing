@@ -15,7 +15,7 @@ const modes = [
   {
     id: "system-analyst",
     icon: Code,
-    color: "bg-green-500"
+    color: "bg-blue-500"
   },
   {
     id: "architect",
