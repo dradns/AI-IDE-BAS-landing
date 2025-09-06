@@ -1,7 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
+import { translations } from "@/lib/translations";
 
 const Hero = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background decoration */}
@@ -14,25 +19,25 @@ const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
             <span className="w-2 h-2 rounded-full gradient-primary animate-pulse" />
-            Analytics Revolution
+            {t.hero.badge}
           </div>
           
           {/* Main heading */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            <span className="text-gradient">AI for Analysts</span>
+            <span className="text-gradient">{t.hero.title}</span>
             <br />
-            <span className="text-foreground">and Solution Architects</span>
+            <span className="text-foreground">{t.hero.titleSecond}</span>
           </h1>
           
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Don't write documentation manually — AI IDE BAS will do it for you
+            {t.hero.subtitle}
           </p>
           
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
             <Button variant="hero" size="hero" className="group">
-              Install AI IDE BAS
+              {t.hero.install}
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
@@ -40,7 +45,7 @@ const Hero = () => {
             
             <Button variant="outline" size="lg" className="group">
               <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              Watch Demo
+              {t.hero.watchDemo}
             </Button>
           </div>
         </div>

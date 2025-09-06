@@ -1,59 +1,64 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Brain, Clock, FileText, Settings, Users, GitBranch } from "lucide-react";
-
-const features = [
-  {
-    icon: Brain,
-    title: "Any LLM Choice",
-    description: "Integration with LLM via your API key",
-    color: "text-blue-500"
-  },
-  {
-    icon: Clock,
-    title: "Time Savings",
-    description: "Reduce costs on routine operations by more than half", 
-    color: "text-green-500"
-  },
-  {
-    icon: FileText,
-    title: "Quality Templates",
-    description: "AI IDE BAS includes artifact templates developed by recognized industry experts",
-    color: "text-purple-500"
-  },
-  {
-    icon: Settings,
-    title: "Flexible Configuration", 
-    description: "Refine modes according to your project needs",
-    color: "text-orange-500"
-  },
-  {
-    icon: Users,
-    title: "Team Collaboration",
-    description: "Collaborative work on projects with shared context",
-    color: "text-pink-500"
-  },
-  {
-    icon: GitBranch,
-    title: "Versioning",
-    description: "Complete change history, Git integration",
-    color: "text-cyan-500"
-  }
-];
+import { useLanguage } from "@/hooks/useLanguage";
+import { translations } from "@/lib/translations";
 
 const Features = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  const features = [
+    {
+      icon: Brain,
+      title: t.features.llmChoice.title,
+      description: t.features.llmChoice.description,
+      color: "text-blue-500"
+    },
+    {
+      icon: Clock,
+      title: t.features.timeSavings.title,
+      description: t.features.timeSavings.description, 
+      color: "text-green-500"
+    },
+    {
+      icon: FileText,
+      title: t.features.qualityTemplates.title,
+      description: t.features.qualityTemplates.description,
+      color: "text-purple-500"
+    },
+    {
+      icon: Settings,
+      title: t.features.flexibleConfig.title, 
+      description: t.features.flexibleConfig.description,
+      color: "text-orange-500"
+    },
+    {
+      icon: Users,
+      title: t.features.teamCollaboration.title,
+      description: t.features.teamCollaboration.description,
+      color: "text-pink-500"
+    },
+    {
+      icon: GitBranch,
+      title: t.features.versioning.title,
+      description: t.features.versioning.description,
+      color: "text-cyan-500"
+    }
+  ];
+
   return (
     <section id="features" className="py-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4 px-4 py-2">
-            Platform Features
+            {t.features.badge}
           </Badge>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Why Choose <span className="text-gradient">AI IDE BAS</span>
+            {t.features.title} <span className="text-gradient">AI IDE BAS</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Modern AI technologies for automating documentation, visualizing requirements and accelerating routine processes right in VS Code
+            {t.features.subtitle}
           </p>
         </div>
         

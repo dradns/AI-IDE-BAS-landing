@@ -2,22 +2,57 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Users, Code, Building, Eye, Palette, User } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
+import { translations } from "@/lib/translations";
 
 const modes = [
   {
     id: "business-analyst",
-    title: "Business Analyst Mode",
     icon: Users,
-    color: "bg-blue-500",
-    features: [
-      "User Stories",
-      "Use Cases", 
-      "Activity Diagram in PlantUML format",
-      "Acceptance Criteria",
-      "Project glossary formation",
-      "Project stakeholder information gathering"
-    ],
-    example: `# US-XXX: [Краткое название функциональности]
+    color: "bg-blue-500"
+  },
+  {
+    id: "system-analyst",
+    icon: Code,
+    color: "bg-green-500"
+  },
+  {
+    id: "architect",
+    icon: Building,
+    color: "bg-purple-500"
+  },
+  {
+    id: "reviewer",
+    icon: Eye,
+    color: "bg-orange-500"
+  },
+  {
+    id: "designer",
+    icon: Palette,
+    color: "bg-pink-500"
+  },
+  {
+    id: "project-manager",
+    icon: User,
+    color: "bg-cyan-500"
+  }
+];
+
+const Modes = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  const modeNames = [
+    t.modes.businessAnalyst,
+    t.modes.systemAnalyst, 
+    t.modes.architect,
+    t.modes.reviewer,
+    t.modes.designer,
+    t.modes.projectManager
+  ];
+
+  const exampleCode = language === 'ru' 
+    ? `# US-XXX: [Краткое название функциональности]
 
 Как <роль пользователя>,
 я хочу <желаемое действие/функциональность>,
@@ -27,46 +62,23 @@ const modes = [
 - [ ] Пользователь может выполнить действие
 - [ ] Система обрабатывает запрос корректно
 - [ ] Результат соответствует ожиданиям`
-  },
-  {
-    id: "system-analyst",
-    title: "System Analyst Mode",
-    icon: Code,
-    color: "bg-green-500"
-  },
-  {
-    id: "architect",
-    title: "Architect Mode", 
-    icon: Building,
-    color: "bg-purple-500"
-  },
-  {
-    id: "reviewer",
-    title: "Reviewer Mode",
-    icon: Eye,
-    color: "bg-orange-500"
-  },
-  {
-    id: "designer",
-    title: "Designer Mode",
-    icon: Palette,
-    color: "bg-pink-500"
-  },
-  {
-    id: "project-manager",
-    title: "Project Manager Mode",
-    icon: User,
-    color: "bg-cyan-500"
-  }
-];
+    : `# US-XXX: [Short functionality title]
 
-const Modes = () => {
+As a <user role>,
+I want <desired action/functionality>,
+so that <expected result/benefit>.
+
+## Acceptance Criteria
+- [ ] User can perform the action
+- [ ] System processes the request correctly
+- [ ] Result meets expectations`;
+
   return (
     <section id="modes" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            AI IDE BAS <span className="text-gradient">Modes</span>
+            {t.modes.title}
           </h2>
         </div>
         
@@ -81,7 +93,7 @@ const Modes = () => {
                 className="p-4 h-auto flex-col gap-2 text-center"
               >
                 <Icon className="w-6 h-6" />
-                <span className="text-sm font-medium leading-tight">{mode.title}</span>
+                <span className="text-sm font-medium leading-tight">{modeNames[index]}</span>
               </Button>
             );
           })}
@@ -96,11 +108,11 @@ const Modes = () => {
                   <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
                     <Users className="w-6 h-6 text-blue-500" />
                   </div>
-                  <h3 className="text-2xl font-bold">Business Analyst Mode</h3>
+                  <h3 className="text-2xl font-bold">{t.modes.businessAnalyst}</h3>
                 </div>
                 
                 <div className="space-y-3">
-                  {modes[0].features?.map((feature, index) => (
+                  {t.modes.features.map((feature, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <span className="text-blue-500 font-bold">{index + 1}.</span>
                       <span className="text-muted-foreground">{feature}</span>
@@ -111,7 +123,7 @@ const Modes = () => {
               
               <div className="bg-muted/50 rounded-lg p-6 border border-border/50">
                 <pre className="text-sm text-muted-foreground whitespace-pre-wrap overflow-auto">
-                  {modes[0].example}
+                  {exampleCode}
                 </pre>
               </div>
             </div>

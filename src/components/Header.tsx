@@ -1,6 +1,11 @@
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/hooks/useLanguage";
+import { translations } from "@/lib/translations";
 
 const Header = () => {
+  const { language, setLanguage } = useLanguage();
+  const t = translations[language];
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
@@ -13,25 +18,29 @@ const Header = () => {
         
         <nav className="hidden md:flex items-center gap-8">
           <a href="#modes" className="text-muted-foreground hover:text-foreground transition-smooth">
-            Modes
+            {t.nav.modes}
           </a>
           <a href="#features" className="text-muted-foreground hover:text-foreground transition-smooth">
-            Features
+            {t.nav.features}
           </a>
           <a href="#get-started" className="text-muted-foreground hover:text-foreground transition-smooth">
-            Get Started
+            {t.nav.getStarted}
           </a>
           <a href="#community" className="text-muted-foreground hover:text-foreground transition-smooth">
-            Community
+            {t.nav.community}
           </a>
         </nav>
         
         <div className="flex items-center gap-4">
-          <Button variant="outline" size="sm">
-            RU
+          <Button 
+            variant="outline" 
+            size="sm"
+            onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}
+          >
+            {language === 'ru' ? 'EN' : 'RU'}
           </Button>
           <Button variant="hero" size="lg">
-            Try Now
+            {t.nav.tryNow}
           </Button>
         </div>
       </div>
