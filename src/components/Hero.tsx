@@ -27,16 +27,10 @@ const Hero = () => {
               <img src="/vscode-logo.svg" alt="VS Code" className="w-full h-full" />
             </div>
             <div className="w-12 h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <svg viewBox="0 0 24 24" className="w-full h-full fill-current text-primary">
-                <path d="M12 2C13.1 2 14 2.9 14 4V8C14 9.1 13.1 10 12 10S10 9.1 10 8V4C10 2.9 10.9 2 12 2M21 11H20V10C20 8.9 19.1 8 18 8S16 8.9 16 10V11H15C14.4 11 14 11.4 14 12V20C14 20.6 14.4 21 15 21H21C21.6 21 22 20.6 22 20V12C22 11.4 21.6 11 21 11M18.5 16C18.5 16.8 17.8 17.5 17 17.5S15.5 16.8 15.5 16S16.2 14.5 17 14.5S18.5 15.2 18.5 16M18 11V10C18 9.4 17.6 9 17 9S16 9.4 16 10V11H18Z"/>
-              </svg>
+              <img src="/cursor-logo.png" alt="Cursor" className="w-full h-full object-contain" />
             </div>
             <div className="w-12 h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <svg viewBox="0 0 24 24" className="w-full h-full fill-current text-primary">
-                <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
-                <path d="M6 17L7.05 20.05L10 19L7.05 17.95L6 17Z"/>
-                <path d="M18 5L19.05 8.05L22 7L19.05 5.95L18 5Z"/>
-              </svg>
+              <img src="/windsurf-logo.png" alt="Windsurf" className="w-full h-full object-contain" />
             </div>
           </div>
           
