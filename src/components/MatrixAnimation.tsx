@@ -102,8 +102,8 @@ const MatrixAnimation = () => {
           }
         }
         
-        // Move drop down smoothly and consistently
-        drops[i] += 0.3;
+        // Move drop down smoothly and consistently - медленнее
+        drops[i] += 0.2;
         
         // Reset when completely off screen
         if (drops[i] * fontSize > canvas.height + 200) {
