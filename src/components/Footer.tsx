@@ -45,7 +45,7 @@ const Footer = () => {
                 <MessageCircle className="w-5 h-5" />
               </Button>
               <Button
-                variant="hero"
+                variant="outline"
                 size="icon"
                 onClick={() => window.open('https://vkvideo.ru/video-231325948_456239030', '_blank')}
               >
