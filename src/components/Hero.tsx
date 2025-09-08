@@ -52,7 +52,12 @@ const Hero = () => {
           
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
-            <Button variant="hero" size="hero" className="group">
+            <Button 
+              variant="hero" 
+              size="hero" 
+              className="group"
+              onClick={() => window.open('https://marketplace.visualstudio.com/items?itemName=8eton.ai-ide-bas', '_blank')}
+            >
               {t.hero.install}
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
