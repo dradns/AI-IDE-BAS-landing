@@ -35,7 +35,7 @@ const modes = [
   {
     id: "project-manager",
     icon: User,
-    color: "bg-cyan-500"
+    color: "bg-blue-500"
   }
 ];
 
@@ -65,6 +65,8 @@ const Modes = () => {
         return language === 'ru' ? 'Режим ревьювера' : 'Reviewer Mode';
       case "designer":
         return language === 'ru' ? 'Режим дизайнера' : 'Designer Mode';
+      case "project-manager":
+        return language === 'ru' ? 'Режим проектного менеджера' : 'Project Manager Mode';
       default:
         return t.modes.businessAnalyst;
     }
@@ -82,6 +84,8 @@ const Modes = () => {
         return t.modes.reviewerFeatures;
       case "designer":
         return t.modes.designerFeatures;
+      case "project-manager":
+        return t.modes.projectManagerFeatures;
       default:
         return t.modes.features;
     }
@@ -164,6 +168,16 @@ database "Database" {
 
 Main Content Area
 ==================`
+    : selectedMode === "project-manager"
+    ? `@startuml
+title Диаграмма Ганта - Проект AI IDE BAS
+
+[Анализ требований] starts 2025-01-01 and lasts 14 days
+[Проектирование] starts 2025-01-15 and lasts 21 days
+[Разработка] starts 2025-02-05 and lasts 30 days
+[Тестирование] starts 2025-03-07 and lasts 14 days
+[Внедрение] starts 2025-03-21 and lasts 7 days
+@enduml`
     : `# Режим по умолчанию`;
 
   return (
