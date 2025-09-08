@@ -64,7 +64,12 @@ const Hero = () => {
               </svg>
             </Button>
             
-            <Button variant="outline" size="lg" className="group">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="group"
+              onClick={() => window.open('https://vkvideo.ru/video-231325948_456239030', '_blank')}
+            >
               <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
               {t.hero.watchDemo}
             </Button>
