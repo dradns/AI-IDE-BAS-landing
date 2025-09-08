@@ -15,7 +15,7 @@ export const translations = {
       subtitle: 'Не пишите документацию вручную — AI IDE BAS сделает это за вас',
       description: 'для аналитиков и архитекторов решений',
       install: 'Установить AI IDE BAS',
-      watchDemo: 'Смотреть демо'
+      watchDemo: 'Посмотреть демо'
     },
     modes: {
       title: 'Режимы AI IDE BAS',
