@@ -33,7 +33,7 @@ const Footer = () => {
               <Button
                 variant="outline"
                 size="icon"
-                onClick={() => window.open('https://github.com', '_blank')}
+                onClick={() => window.open('https://github.com/dradns/AI-IDE-BAS', '_blank')}
               >
                 <Github className="w-5 h-5" />
               </Button>
