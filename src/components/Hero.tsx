@@ -70,8 +70,8 @@ const Hero = () => {
               className="group"
               onClick={() => window.open('https://vkvideo.ru/video-231325948_456239030', '_blank')}
             >
-              <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
               {t.hero.watchDemo}
+              <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
             </Button>
           </div>
         </div>
