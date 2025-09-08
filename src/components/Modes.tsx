@@ -225,7 +225,9 @@ title Диаграмма Ганта - Проект AI IDE BAS
                 <div className="space-y-3">
                   {getModeFeatures(selectedMode).map((feature, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <span className={`${getModeColor(selectedMode).replace('bg-', 'text-')} font-bold`}>{index + 1}.</span>
+                      {selectedMode !== "designer" && (
+                        <span className={`${getModeColor(selectedMode).replace('bg-', 'text-')} font-bold`}>{index + 1}.</span>
+                      )}
                       <span className="text-muted-foreground">{feature}</span>
                     </div>
                   ))}
