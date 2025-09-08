@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { PlayCircle, FileText, Download, MessageCircle } from "lucide-react";
+import { PlayCircle, FileText, Download, MessageCircle, Send } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { translations } from "@/lib/translations";
 
@@ -84,9 +84,7 @@ const GetStarted = () => {
                 className="group"
                 onClick={() => window.open('https://t.me/+ZBkoEo8HhtFjYjIy', '_blank')}
               >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.568 8.16c-.169 1.858-.896 6.728-.896 6.728-.302 1.435-1.132 1.685-1.132 1.685s-.431.086-.992-.172c-.561-.258-1.248-.578-1.735-.802-.49-.224-.95-.463-1.528-.693-.578-.23-1.165-.455-1.735-.693-.57-.238-1.248-.518-1.735-.802s-.992-.172-.992-.172-.83-.25-1.132-1.685c0 0-.727-4.87-.896-6.728-.169-1.858.302-2.132.302-2.132s.648-.344 1.735.052c1.087.396 2.465.85 3.88 1.346 1.415.496 2.83.946 4.245 1.346 1.415-.4 2.83-.85 4.245-1.346 1.415-.496 2.793-.95 3.88-1.346 1.087-.396 1.735-.052 1.735-.052s.471.274.302 2.132z"/>
-                </svg>
+                <Send className="w-5 h-5" />
                 {t.getStarted.setupHelp}
               </Button>
             </div>
