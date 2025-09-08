@@ -8,7 +8,7 @@ const Hero = () => {
     language
   } = useLanguage();
   const t = translations[language];
-  return <section className="relative flex items-center justify-center overflow-hidden pt-20 pb-10 min-h-screen">
+  return <section className="relative flex items-center justify-center overflow-hidden pt-16 pb-10 min-h-screen">
       {/* Matrix Animation Background */}
       <MatrixAnimation />
       
