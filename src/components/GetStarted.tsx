@@ -52,7 +52,11 @@ const GetStarted = () => {
             <p className="text-muted-foreground mb-6">
               {t.getStarted.textTutorial.description}
             </p>
-            <Button variant="outline" className="w-full group">
+            <Button 
+              variant="outline" 
+              className="w-full group"
+              onClick={() => window.open('https://telegra.ph/Instrukciya-po-ustanovke-i-nastrojke-AI-IDE-BAS-07-30', '_blank')}
+            >
               <FileText className="w-5 h-5 group-hover:scale-110 transition-transform" />
               {t.getStarted.textTutorial.button}
             </Button>
