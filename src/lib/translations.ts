@@ -94,7 +94,7 @@ export const translations = {
       badge: 'Быстрый старт',
       title: 'Как начать?',
       videoTutorial: {
-        title: 'Видео-урок',
+        title: 'Видеоинструкция',
         description: 'Посмотрите наш подробный видео-гид для быстрого и эффективного начала работы с AI IDE BAS.',
         button: 'Смотреть видео-урок'
       },
