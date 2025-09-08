@@ -12,8 +12,8 @@ const Footer = () => {
           {/* Left side - Logo and description */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
-                <img src="/logo.png" alt="AI IDE BAS Logo" className="w-8 h-8 object-contain" />
+              <div className="w-12 h-12 flex items-center justify-center">
+                <img src="/logo.png" alt="AI IDE BAS Logo" className="w-12 h-12 object-contain" />
               </div>
               <span className="text-xl font-bold text-foreground">AI IDE BAS</span>
             </div>
