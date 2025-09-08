@@ -8,7 +8,7 @@ const Hero = () => {
     language
   } = useLanguage();
   const t = translations[language];
-  return <section className="relative flex items-center justify-center overflow-hidden pt-16 sm:pt-18 pb-8 sm:pb-10 min-h-screen">
+  return <section className="relative flex items-center justify-center overflow-hidden pt-20 pb-10 min-h-screen">
       {/* Matrix Animation Background */}
       <MatrixAnimation />
       
@@ -16,13 +16,13 @@ const Hero = () => {
       <div className="absolute top-20 left-10 w-32 h-32 rounded-full gradient-primary opacity-20 blur-2xl animate-pulse" />
       <div className="absolute bottom-20 right-10 w-40 h-40 rounded-full bg-accent/30 blur-2xl animate-pulse delay-700" />
       
-      <div className="container mx-auto px-4 sm:px-6 py-2 sm:py-4 relative z-10">
-        <div className="text-center max-w-4xl mx-auto space-y-4 sm:space-y-6">
+      <div className="container mx-auto px-6 py-8 relative z-10">
+        <div className="text-center max-w-4xl mx-auto space-y-8">
           {/* Badge */}
           
           
           {/* Logos row */}
-          <div className="flex items-center justify-center gap-4 sm:gap-8 mb-4 sm:mb-6">
+          <div className="flex items-center justify-center gap-4 sm:gap-8 mb-8">
             <div className="w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
               <img src="/vscode-logo.png" alt="VS Code" className="w-full h-full object-contain" />
             </div>
