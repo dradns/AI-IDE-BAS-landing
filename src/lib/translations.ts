@@ -50,6 +50,9 @@ export const translations = {
         'Проверку проекта по требованиям кибербезопасности',
         'Проверку архитектурных решений проекта',
         'Проверку проекта инженером поддержки'
+      ],
+      designerFeatures: [
+        'Прототип (мокап, wireframe)'
       ]
     },
     features: {
@@ -152,6 +155,9 @@ export const translations = {
         'Project cybersecurity requirements review',
         'Project architectural solutions review',
         'Project support engineer review'
+      ],
+      designerFeatures: [
+        'Prototype (mockup, wireframe)'
       ]
     },
     features: {

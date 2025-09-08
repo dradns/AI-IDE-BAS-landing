@@ -30,7 +30,7 @@ const modes = [
   {
     id: "designer",
     icon: Palette,
-    color: "bg-pink-500"
+    color: "bg-blue-500"
   },
   {
     id: "project-manager",
@@ -63,6 +63,8 @@ const Modes = () => {
         return language === 'ru' ? 'Режим архитектора' : 'Architect Mode';
       case "reviewer":
         return language === 'ru' ? 'Режим ревьювера' : 'Reviewer Mode';
+      case "designer":
+        return language === 'ru' ? 'Режим дизайнера' : 'Designer Mode';
       default:
         return t.modes.businessAnalyst;
     }
@@ -78,6 +80,8 @@ const Modes = () => {
         return t.modes.architectFeatures;
       case "reviewer":
         return t.modes.reviewerFeatures;
+      case "designer":
+        return t.modes.designerFeatures;
       default:
         return t.modes.features;
     }
@@ -153,6 +157,13 @@ database "Database" {
 - [ ] Результаты достижимы и измеримы
 
 **Статус:** ✅ Требования корректны`
+    : selectedMode === "designer"
+    ? `Header
+==================
+[Logo] [Menu] [Search] [User]
+
+Main Content Area
+==================`
     : `# Режим по умолчанию`;
 
   return (
