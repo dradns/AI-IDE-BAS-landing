@@ -8,7 +8,7 @@ const Hero = () => {
     language
   } = useLanguage();
   const t = translations[language];
-  return <section className="relative flex items-center justify-center overflow-hidden pt-16 pb-10 min-h-screen">
+  return <section className="relative flex items-start justify-center overflow-hidden pt-12 pb-10 min-h-screen">
       {/* Matrix Animation Background */}
       <MatrixAnimation />
       
@@ -16,8 +16,8 @@ const Hero = () => {
       <div className="absolute top-20 left-10 w-32 h-32 rounded-full gradient-primary opacity-20 blur-2xl animate-pulse" />
       <div className="absolute bottom-20 right-10 w-40 h-40 rounded-full bg-accent/30 blur-2xl animate-pulse delay-700" />
       
-      <div className="container mx-auto px-6 py-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto space-y-8">
+      <div className="container mx-auto px-6 py-4 relative z-10">
+        <div className="text-center max-w-4xl mx-auto space-y-6">
           {/* Badge */}
           
           
