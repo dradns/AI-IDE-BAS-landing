@@ -53,12 +53,6 @@ export const translations = {
       ],
       designerFeatures: [
         'Прототип (мокап, wireframe)'
-      ],
-      projectManagerFeatures: [
-        'Формирование бэклога спринта',
-        'Постановка задач в разработку',
-        'Приоритизация задач',
-        'Определение зависимостей'
       ]
     },
     features: {
@@ -164,12 +158,6 @@ export const translations = {
       ],
       designerFeatures: [
         'Prototype (mockup, wireframe)'
-      ],
-      projectManagerFeatures: [
-        'Sprint backlog formation',
-        'Task assignment for development',
-        'Task prioritization',
-        'Dependencies identification'
       ]
     },
     features: {
