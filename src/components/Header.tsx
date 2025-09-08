@@ -39,7 +39,11 @@ const Header = () => {
           >
             {language === 'ru' ? 'EN' : 'RU'}
           </Button>
-          <Button variant="hero" size="lg">
+          <Button 
+            variant="hero" 
+            size="lg"
+            onClick={() => window.open('https://marketplace.visualstudio.com/items?itemName=8eton.ai-ide-bas', '_blank')}
+          >
             {t.nav.tryNow}
           </Button>
         </div>
