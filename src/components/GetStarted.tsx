@@ -32,7 +32,11 @@ const GetStarted = () => {
             <p className="text-muted-foreground mb-6">
               {t.getStarted.videoTutorial.description}
             </p>
-            <Button variant="outline" className="w-full group">
+            <Button 
+              variant="outline" 
+              className="w-full group"
+              onClick={() => window.open('https://vkvideo.ru/video-231325948_456239056?t=9m57s', '_blank')}
+            >
               <PlayCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
               {t.getStarted.videoTutorial.button}
             </Button>
