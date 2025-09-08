@@ -96,7 +96,7 @@ export const translations = {
       videoTutorial: {
         title: 'Видеоинструкция',
         description: 'Посмотрите наш подробный видео-гид для быстрого и эффективного начала работы с AI IDE BAS.',
-        button: 'Смотреть видео-урок'
+        button: 'Смотреть видео'
       },
       textTutorial: {
         title: 'Текстовая инструкция',
