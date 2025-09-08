@@ -61,7 +61,7 @@ const GetStarted = () => {
             {t.getStarted.install}
           </Button>
           
-          <div className="mt-12">
+          <div id="community" className="mt-12">
             <h3 className="text-xl font-semibold mb-6">{t.getStarted.needHelp}</h3>
             <p className="text-muted-foreground mb-6">
               {t.getStarted.contactUs}

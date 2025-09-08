@@ -26,7 +26,7 @@ const Header = () => {
           <a href="#get-started" className="text-muted-foreground hover:text-foreground transition-smooth">
             {t.nav.getStarted}
           </a>
-          <a href="#get-started" className="text-muted-foreground hover:text-foreground transition-smooth">
+          <a href="#community" className="text-muted-foreground hover:text-foreground transition-smooth">
             {t.nav.community}
           </a>
         </nav>
