@@ -66,7 +66,7 @@ const Hero = () => {
             
             <Button 
               variant="outline" 
-              size="lg" 
+              size="hero" 
               className="group"
               onClick={() => window.open('https://vkvideo.ru/video-231325948_456239030', '_blank')}
             >
