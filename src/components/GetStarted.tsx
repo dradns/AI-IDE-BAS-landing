@@ -56,7 +56,12 @@ const GetStarted = () => {
         </div>
         
         <div className="text-center">
-          <Button variant="hero" size="hero" className="group">
+          <Button 
+            variant="hero" 
+            size="hero" 
+            className="group"
+            onClick={() => window.open('https://marketplace.visualstudio.com/items?itemName=8eton.ai-ide-bas', '_blank')}
+          >
             <Download className="w-6 h-6 group-hover:translate-y-1 transition-transform" />
             {t.getStarted.install}
           </Button>
