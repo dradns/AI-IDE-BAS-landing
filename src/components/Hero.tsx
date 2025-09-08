@@ -41,7 +41,7 @@ const Hero = () => {
               <img src="/extention.png" alt="Extension" className="w-10 h-10 md:w-16 md:h-16 object-contain" />
             </span>
           </h1>
-          <p className="text-3xl md:text-5xl text-foreground font-bold text-center whitespace-nowrap -mt-1 md:-mt-2">
+          <p className="text-3xl md:text-5xl text-foreground font-bold text-center md:whitespace-nowrap -mt-1 md:-mt-2">
             {t.hero.description}
           </p>
           
