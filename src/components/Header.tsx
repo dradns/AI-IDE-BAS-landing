@@ -8,12 +8,12 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 flex items-center justify-center">
-            <img src="/logo.png" alt="AI IDE BAS Logo" className="w-12 h-12 object-contain" />
+      <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center">
+            <img src="/logo.png" alt="AI IDE BAS Logo" className="w-8 h-8 sm:w-12 sm:h-12 object-contain" />
           </div>
-          <span className="text-xl font-bold text-foreground">AI IDE BAS</span>
+          <span className="text-lg sm:text-xl font-bold text-foreground">AI IDE BAS</span>
         </div>
         
         <nav className="hidden md:flex items-center gap-8">
@@ -31,17 +31,19 @@ const Header = () => {
           </a>
         </nav>
         
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <Button 
             variant="outline" 
             size="sm"
+            className="text-xs sm:text-sm px-2 sm:px-3"
             onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}
           >
             {language === 'ru' ? 'EN' : 'RU'}
           </Button>
           <Button 
             variant="hero" 
-            size="lg"
+            size="sm"
+            className="hidden sm:flex text-sm px-3 sm:px-4"
             onClick={() => window.open('https://marketplace.visualstudio.com/items?itemName=8eton.ai-ide-bas', '_blank')}
           >
             {t.nav.tryNow}
