@@ -25,7 +25,7 @@ const modes = [
   {
     id: "reviewer",
     icon: Eye,
-    color: "bg-orange-500"
+    color: "bg-blue-500"
   },
   {
     id: "designer",
@@ -61,6 +61,8 @@ const Modes = () => {
         return language === 'ru' ? 'Режим системного аналитика' : 'System Analyst Mode';
       case "architect":
         return language === 'ru' ? 'Режим архитектора' : 'Architect Mode';
+      case "reviewer":
+        return language === 'ru' ? 'Режим ревьювера' : 'Reviewer Mode';
       default:
         return t.modes.businessAnalyst;
     }
@@ -74,6 +76,8 @@ const Modes = () => {
         return t.modes.systemAnalystFeatures;
       case "architect":
         return t.modes.architectFeatures;
+      case "reviewer":
+        return t.modes.reviewerFeatures;
       default:
         return t.modes.features;
     }
@@ -141,6 +145,14 @@ database "Database" {
   [PostgreSQL]
 }
 @enduml`
+    : selectedMode === "reviewer"
+    ? `**Проверка логической целостности:**
+- [ ] AS IS логически предшествует TO BE
+- [ ] Роли соответствуют реальным участникам процесса
+- [ ] Действия выполнимы в рамках предметной области
+- [ ] Результаты достижимы и измеримы
+
+**Статус:** ✅ Требования корректны`
     : `# Режим по умолчанию`;
 
   return (

@@ -44,6 +44,12 @@ export const translations = {
       architectFeatures: [
         'Диаграмма контекста',
         'Диаграмма компонентов'
+      ],
+      reviewerFeatures: [
+        'Проверку проекта на предмет качества требований и артефактов бизнес и системного аналитика',
+        'Проверку проекта по требованиям кибербезопасности',
+        'Проверку архитектурных решений проекта',
+        'Проверку проекта инженером поддержки'
       ]
     },
     features: {
@@ -140,6 +146,12 @@ export const translations = {
       architectFeatures: [
         'Context diagram',
         'Component diagram'
+      ],
+      reviewerFeatures: [
+        'Project quality review for business and system analyst requirements and artifacts',
+        'Project cybersecurity requirements review',
+        'Project architectural solutions review',
+        'Project support engineer review'
       ]
     },
     features: {
