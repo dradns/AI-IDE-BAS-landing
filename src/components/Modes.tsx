@@ -124,7 +124,8 @@ so that <expected result/benefit>.
 - [ ] System processes the request correctly
 - [ ] Result meets expectations`)
     : selectedMode === "system-analyst" 
-    ? `@startuml
+    ? (language === 'ru'
+      ? `@startuml
 title Процесс установки расширения AI IDE BAS
 
 actor Пользователь
@@ -134,8 +135,19 @@ participant "VS Code" as VSCode
 VSCode -> VSCode: Устанавливает расширение
 VSCode -> Пользователь: Дает суперсилу
 @enduml`
+      : `@startuml
+title AI IDE BAS Extension Installation Process
+
+actor User
+participant "VS Code" as VSCode
+
+User -> VSCode: Clicks "Install"
+VSCode -> VSCode: Installs extension
+VSCode -> User: Gives superpower
+@enduml`)
     : selectedMode === "architect"
-    ? `@startuml
+    ? (language === 'ru'
+      ? `@startuml
 title Архитектура системы
 
 package "Frontend" {
@@ -153,14 +165,40 @@ database "Database" {
   [PostgreSQL]
 }
 @enduml`
+      : `@startuml
+title System Architecture
+
+package "Frontend" {
+  [React App]
+  [UI Components]
+}
+
+package "Backend" {
+  [API Gateway]
+  [User Service]
+  [Data Service]
+}
+
+database "Database" {
+  [PostgreSQL]
+}
+@enduml`)
     : selectedMode === "reviewer"
-    ? `**Проверка логической целостности:**
+    ? (language === 'ru'
+      ? `**Проверка логической целостности:**
 - [ ] AS IS логически предшествует TO BE
 - [ ] Роли соответствуют реальным участникам процесса
 - [ ] Действия выполнимы в рамках предметной области
 - [ ] Результаты достижимы и измеримы
 
 **Статус:** ✅ Требования корректны`
+      : `**Logical integrity check:**
+- [ ] AS IS logically precedes TO BE
+- [ ] Roles correspond to real process participants
+- [ ] Actions are feasible within the domain
+- [ ] Results are achievable and measurable
+
+**Status:** ✅ Requirements are correct`)
     : selectedMode === "designer"
     ? `Header
 ==================
@@ -169,7 +207,8 @@ database "Database" {
 Main Content Area
 ==================`
     : selectedMode === "project-manager"
-    ? `@startuml
+    ? (language === 'ru'
+      ? `@startuml
 title Диаграмма Ганта - Проект AI IDE BAS
 
 [Анализ требований] starts 2025-01-01 and lasts 14 days
@@ -178,7 +217,16 @@ title Диаграмма Ганта - Проект AI IDE BAS
 [Тестирование] starts 2025-03-07 and lasts 14 days
 [Внедрение] starts 2025-03-21 and lasts 7 days
 @enduml`
-    : `# Режим по умолчанию`;
+      : `@startuml
+title Gantt Chart - AI IDE BAS Project
+
+[Requirements Analysis] starts 2025-01-01 and lasts 14 days
+[Design] starts 2025-01-15 and lasts 21 days
+[Development] starts 2025-02-05 and lasts 30 days
+[Testing] starts 2025-03-07 and lasts 14 days
+[Deployment] starts 2025-03-21 and lasts 7 days
+@enduml`)
+    : `# Default mode`;
 
   return (
     <section id="modes" className="pt-2 pb-20 bg-gradient-to-b from-secondary/10 to-secondary/30 relative z-10">
