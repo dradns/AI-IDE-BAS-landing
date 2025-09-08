@@ -51,11 +51,11 @@ const Hero = () => {
           </p>
           
           {/* CTA buttons */}
-          <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 pt-4 w-full px-4">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-4 sm:gap-6 pt-4 w-full px-4">
             <Button 
               variant="hero" 
               size="hero" 
-              className="group w-full sm:w-auto"
+              className="group w-full lg:w-auto"
               onClick={() => window.open('https://marketplace.visualstudio.com/items?itemName=8eton.ai-ide-bas', '_blank')}
             >
               {t.hero.install}
@@ -67,7 +67,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="hero" 
-              className="group w-full sm:w-auto"
+              className="group w-full lg:w-auto"
               onClick={() => window.open('https://vkvideo.ru/video-231325948_456239030', '_blank')}
             >
               {t.hero.watchDemo}
