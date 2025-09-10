@@ -77,12 +77,18 @@ const Hero = () => {
           
           {/* Demo GIF */}
           <div className="mt-8 md:mt-16 w-full max-w-7xl mx-auto px-4 md:px-6">
-            <div className="relative rounded-xl overflow-hidden shadow-elegant border border-border/20 bg-background/50 backdrop-blur-sm">
+            <div className="relative rounded-xl overflow-hidden shadow-elegant border border-border/20 bg-background/50 backdrop-blur-sm min-h-[300px] flex items-center justify-center">
+              {/* Временно используем доступное изображение для проверки */}
               <img 
-                src="/1.gif?v=3" 
-                alt="AI IDE BAS Demo" 
-                className="w-full h-auto object-cover"
+                src="/logo.png" 
+                alt="Test image" 
+                className="w-32 h-32 object-contain opacity-50"
+                onLoad={() => console.log('Test image loaded')}
+                onError={() => console.log('Test image failed')}
               />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <p className="text-muted-foreground">Загрузка демо...</p>
+              </div>
             </div>
           </div>
         </div>
