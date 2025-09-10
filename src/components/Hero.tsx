@@ -79,7 +79,7 @@ const Hero = () => {
           <div className="mt-8 md:mt-16 w-full max-w-6xl mx-auto px-4 md:px-0">
             <div className="relative rounded-lg overflow-hidden shadow-2xl">
               <img 
-                src="/1.gif" 
+                src="/1.gif?v=2" 
                 alt="AI IDE BAS Demo" 
                 className="w-full h-auto object-cover"
               />
