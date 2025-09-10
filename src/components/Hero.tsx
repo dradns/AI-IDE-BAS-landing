@@ -74,6 +74,17 @@ const Hero = () => {
               <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
             </Button>
           </div>
+          
+          {/* Demo GIF */}
+          <div className="mt-8 md:mt-16 w-full max-w-6xl mx-auto px-4 md:px-0">
+            <div className="relative rounded-lg overflow-hidden shadow-2xl">
+              <img 
+                src="/1.gif" 
+                alt="AI IDE BAS Demo" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>;
