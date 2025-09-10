@@ -83,8 +83,19 @@ const Hero = () => {
                 alt="AI IDE BAS Demo" 
                 className="w-full h-auto object-cover"
                 loading="lazy"
-                onError={(e) => console.log('GIF loading error:', e)}
+                onLoad={() => console.log('GIF loaded successfully')}
+                onError={(e) => {
+                  console.error('GIF loading failed:', e);
+                  const target = e.target as HTMLImageElement;
+                  console.error('Image src:', target.src);
+                  // Скрываем изображение если не загружается
+                  target.style.display = 'none';
+                }}
               />
+              {/* Показываем текст если изображение не загружается */}
+              <div className="absolute inset-0 flex items-center justify-center bg-muted/80 text-muted-foreground" id="gif-fallback" style={{display: 'none'}}>
+                Демо будет доступно скоро
+              </div>
             </div>
           </div>
         </div>
