@@ -77,17 +77,29 @@ const Hero = () => {
           
           {/* Demo GIF */}
           <div className="mt-8 md:mt-16 w-full max-w-7xl mx-auto px-4 md:px-6">
-            <div className="relative rounded-xl overflow-hidden shadow-elegant border border-border/20 bg-background/50 backdrop-blur-sm min-h-[300px] flex items-center justify-center">
-              {/* Временно используем доступное изображение для проверки */}
-              <img 
-                src="/logo.png" 
-                alt="Test image" 
-                className="w-32 h-32 object-contain opacity-50"
-                onLoad={() => console.log('Test image loaded')}
-                onError={() => console.log('Test image failed')}
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <p className="text-muted-foreground">Загрузка демо...</p>
+            <div className="relative rounded-xl overflow-hidden shadow-elegant border border-border/20 bg-background/50 backdrop-blur-sm">
+              {/* Показываем загрузку и пытаемся загрузить большой GIF */}
+              <div className="relative min-h-[400px] flex items-center justify-center bg-muted/20">
+                <div className="text-center space-y-4">
+                  <div className="animate-spin w-8 h-8 border-2 border-primary border-t-transparent rounded-full mx-auto"></div>
+                  <p className="text-muted-foreground">Загрузка демо (37.7 MB)...</p>
+                  <p className="text-sm text-muted-foreground/70">Это может занять некоторое время</p>
+                </div>
+                <img 
+                  src="/1.gif" 
+                  alt="AI IDE BAS Demo" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500"
+                  onLoad={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.opacity = '1';
+                    const parent = target.parentElement;
+                    if (parent) {
+                      const loader = parent.querySelector('.text-center');
+                      if (loader) loader.remove();
+                    }
+                  }}
+                  onError={() => console.log('Не удалось загрузить большой GIF файл')}
+                />
               </div>
             </div>
           </div>
