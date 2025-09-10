@@ -78,24 +78,25 @@ const Hero = () => {
           {/* Demo GIF */}
           <div className="mt-8 md:mt-16 w-full max-w-7xl mx-auto px-4 md:px-6">
             <div className="relative rounded-xl overflow-hidden shadow-elegant border border-border/20 bg-background/50 backdrop-blur-sm">
+              {/* Проверяем несколько путей к файлу */}
               <img 
-                src="/1.gif" 
+                src="./1.gif" 
                 alt="AI IDE BAS Demo" 
                 className="w-full h-auto object-cover"
-                loading="lazy"
-                onLoad={() => console.log('GIF loaded successfully')}
+                onLoad={() => console.log('GIF loaded from ./1.gif')}
                 onError={(e) => {
-                  console.error('GIF loading failed:', e);
+                  console.log('Failed to load ./1.gif, trying /1.gif');
                   const target = e.target as HTMLImageElement;
-                  console.error('Image src:', target.src);
-                  // Скрываем изображение если не загружается
-                  target.style.display = 'none';
+                  target.src = '/1.gif';
+                  target.onload = () => console.log('GIF loaded from /1.gif');
+                  target.onerror = () => {
+                    console.log('Failed to load /1.gif, trying public/1.gif');
+                    target.src = 'public/1.gif';
+                    target.onload = () => console.log('GIF loaded from public/1.gif');
+                    target.onerror = () => console.error('All paths failed for 1.gif');
+                  };
                 }}
               />
-              {/* Показываем текст если изображение не загружается */}
-              <div className="absolute inset-0 flex items-center justify-center bg-muted/80 text-muted-foreground" id="gif-fallback" style={{display: 'none'}}>
-                Демо будет доступно скоро
-              </div>
             </div>
           </div>
         </div>
