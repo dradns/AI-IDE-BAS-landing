@@ -57,7 +57,7 @@ const Features = () => {
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             {t.features.title} <span className="text-gradient">AI IDE BAS</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-foreground max-w-3xl mx-auto">
             {t.features.subtitle}
           </p>
         </div>
@@ -73,7 +73,7 @@ const Features = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                    <p className="text-foreground leading-relaxed">{feature.description}</p>
                   </div>
                 </div>
               </Card>

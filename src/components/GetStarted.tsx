@@ -29,7 +29,7 @@ const GetStarted = () => {
               </div>
               <h3 className="text-xl font-semibold">{t.getStarted.videoTutorial.title}</h3>
             </div>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-foreground mb-6">
               {t.getStarted.videoTutorial.description}
             </p>
             <Button 
@@ -49,7 +49,7 @@ const GetStarted = () => {
               </div>
               <h3 className="text-xl font-semibold">{t.getStarted.textTutorial.title}</h3>
             </div>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-foreground mb-6">
               {t.getStarted.textTutorial.description}
             </p>
             <Button 
@@ -76,7 +76,7 @@ const GetStarted = () => {
           
           <div id="community" className="mt-12">
             <h3 className="text-xl font-semibold mb-6">{t.getStarted.needHelp}</h3>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-foreground mb-6">
               {t.getStarted.contactUs}
             </p>
             

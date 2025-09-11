@@ -17,7 +17,7 @@ const Footer = () => {
               </div>
               <span className="text-xl font-bold text-foreground">AI IDE BAS</span>
             </div>
-            <p className="text-muted-foreground max-w-md">
+            <p className="text-foreground max-w-md">
               {language === 'ru' 
                 ? 'Революционный AI-инструмент для аналитиков и архитекторов решений. 6 экспертных режимов.'
                 : 'Revolutionary AI tool for analysts and solution architects. 6 expert modes.'}

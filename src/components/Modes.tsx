@@ -276,14 +276,14 @@ title Gantt Chart - AI IDE BAS Project
                       {selectedMode !== "designer" && (
                         <span className={`${getModeColor(selectedMode).replace('bg-', 'text-')} font-bold`}>{index + 1}.</span>
                       )}
-                      <span className="text-muted-foreground">{feature}</span>
+                      <span className="text-foreground">{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
               
               <div className="bg-muted/50 rounded-lg p-6 border border-border/50">
-                <pre className="text-sm text-muted-foreground whitespace-pre-wrap overflow-auto">
+                <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
                   {exampleCode}
                 </pre>
               </div>
