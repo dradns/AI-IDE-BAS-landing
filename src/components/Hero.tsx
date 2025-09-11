@@ -36,9 +36,8 @@ const Hero = () => {
           
           {/* Main heading */}
           <h1 className="text-4xl md:text-7xl font-bold leading-tight">
-            <span className="text-gradient inline-flex items-center justify-center gap-2 md:gap-3">
+            <span className="text-gradient">
               {t.hero.extension}
-              <img src="/extention.png" alt="Extension" className="w-10 h-10 md:w-16 md:h-16 object-contain" />
             </span>
           </h1>
           <p className="text-3xl md:text-5xl text-foreground font-bold text-center md:whitespace-nowrap -mt-1 md:-mt-2">
