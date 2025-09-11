@@ -75,6 +75,17 @@ const Hero = () => {
             </Button>
           </div>
           
+          {/* Hero GIF */}
+          <div className="mt-12 md:mt-20 w-full max-w-7xl mx-auto px-4 md:px-6">
+            <div className="relative rounded-lg overflow-hidden shadow-2xl border border-border/10">
+              <img 
+                src="/hero_gifka.gif" 
+                alt="AI IDE BAS Demo" 
+                className="w-full h-auto object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>;
