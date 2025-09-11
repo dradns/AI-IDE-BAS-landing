@@ -85,21 +85,6 @@ const Hero = () => {
                   <p className="text-muted-foreground">Загрузка демо (37.7 MB)...</p>
                   <p className="text-sm text-muted-foreground/70">Это может занять некоторое время</p>
                 </div>
-                <img 
-                  src="/1.gif" 
-                  alt="AI IDE BAS Demo" 
-                  className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500"
-                  onLoad={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.opacity = '1';
-                    const parent = target.parentElement;
-                    if (parent) {
-                      const loader = parent.querySelector('.text-center');
-                      if (loader) loader.remove();
-                    }
-                  }}
-                  onError={() => console.log('Не удалось загрузить большой GIF файл')}
-                />
               </div>
             </div>
           </div>
