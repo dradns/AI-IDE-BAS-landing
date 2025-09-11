@@ -17,16 +17,16 @@ const Header = () => {
         </div>
         
         <nav className="hidden md:flex items-center gap-6 lg:gap-8">
-          <a href="#modes" className="text-muted-foreground hover:text-foreground transition-smooth text-sm lg:text-base">
+          <a href="#modes" className="text-foreground hover:text-foreground transition-smooth text-sm lg:text-base">
             {t.nav.modes}
           </a>
-          <a href="#features" className="text-muted-foreground hover:text-foreground transition-smooth text-sm lg:text-base">
+          <a href="#features" className="text-foreground hover:text-foreground transition-smooth text-sm lg:text-base">
             {t.nav.features}
           </a>
-          <a href="#get-started" className="text-muted-foreground hover:text-foreground transition-smooth text-sm lg:text-base">
+          <a href="#get-started" className="text-foreground hover:text-foreground transition-smooth text-sm lg:text-base">
             {t.nav.getStarted}
           </a>
-          <a href="#community" className="text-muted-foreground hover:text-foreground transition-smooth text-sm lg:text-base">
+          <a href="#community" className="text-foreground hover:text-foreground transition-smooth text-sm lg:text-base">
             {t.nav.community}
           </a>
         </nav>
