@@ -78,34 +78,12 @@ const Hero = () => {
           {/* Hero GIF */}
           <div className="mt-12 md:mt-20 w-full max-w-7xl mx-auto px-4 md:px-6">
             <div className="relative rounded-lg overflow-hidden shadow-2xl border border-border/10 bg-muted/10">
-              <div className="relative min-h-[400px] md:min-h-[600px] flex items-center justify-center">
-                <img 
-                  src="/hero_gifka.gif" 
-                  alt="AI IDE BAS Demo" 
-                  className="w-full h-auto object-cover"
-                  loading="eager"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    const parent = target.parentElement;
-                    if (parent) {
-                      parent.innerHTML = '<div class="text-center space-y-4"><div class="text-muted-foreground">Демо временно недоступно</div><div class="text-sm text-muted-foreground/70">Файл слишком большой (25 MB)</div></div>';
-                    }
-                  }}
-                  onLoad={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.opacity = '1';
-                  }}
-                  style={{ opacity: 0, transition: 'opacity 0.5s ease-in-out' }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-background/80 backdrop-blur-sm" id="loading-overlay">
-                  <div className="text-center space-y-4">
-                    <div className="animate-spin w-8 h-8 border-2 border-primary border-t-transparent rounded-full mx-auto"></div>
-                    <p className="text-muted-foreground">Загрузка демо...</p>
-                    <p className="text-xs text-muted-foreground/70">25 MB • Это может занять время</p>
-                  </div>
-                </div>
-              </div>
+              <img 
+                src="/hero_gifka.gif" 
+                alt="AI IDE BAS Demo" 
+                className="w-full h-auto object-cover"
+                loading="eager"
+              />
             </div>
           </div>
         </div>
