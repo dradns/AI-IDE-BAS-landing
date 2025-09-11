@@ -10,32 +10,32 @@ const modes = [
   {
     id: "business-analyst",
     icon: Users,
-    color: "bg-blue-500"
+    color: "bg-primary"
   },
   {
     id: "system-analyst",
     icon: Code,
-    color: "bg-blue-500"
+    color: "bg-primary"
   },
   {
     id: "architect",
     icon: Building,
-    color: "bg-blue-500"
+    color: "bg-primary"
   },
   {
     id: "reviewer",
     icon: Eye,
-    color: "bg-blue-500"
+    color: "bg-primary"
   },
   {
     id: "designer",
     icon: Palette,
-    color: "bg-blue-500"
+    color: "bg-primary"
   },
   {
     id: "project-manager",
     icon: User,
-    color: "bg-blue-500"
+    color: "bg-primary"
   }
 ];
 
@@ -97,8 +97,7 @@ const Modes = () => {
   };
 
   const getModeColor = (modeId: string) => {
-    const mode = modes.find(m => m.id === modeId);
-    return mode ? mode.color : "bg-blue-500";
+    return "bg-primary";
   };
 
   const exampleCode = selectedMode === "business-analyst" 
@@ -264,7 +263,7 @@ title Gantt Chart - AI IDE BAS Project
                   <div className={`w-12 h-12 rounded-lg ${getModeColor(selectedMode)}/20 flex items-center justify-center`}>
                     {(() => {
                       const Icon = getModeIcon(selectedMode);
-                      return <Icon className={`w-6 h-6 ${getModeColor(selectedMode).replace('bg-', 'text-')}`} />;
+                      return <Icon className="w-6 h-6 text-primary" />;
                     })()}
                   </div>
                   <h3 className="text-2xl font-bold">{getModeTitle(selectedMode)}</h3>
@@ -274,7 +273,7 @@ title Gantt Chart - AI IDE BAS Project
                   {getModeFeatures(selectedMode).map((feature, index) => (
                     <div key={index} className="flex items-center gap-3">
                       {selectedMode !== "designer" && (
-                        <span className={`${getModeColor(selectedMode).replace('bg-', 'text-')} font-bold`}>{index + 1}.</span>
+                        <span className="text-primary font-bold">{index + 1}.</span>
                       )}
                       <span className="text-foreground">{feature}</span>
                     </div>
