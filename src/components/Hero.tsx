@@ -89,7 +89,7 @@ const Hero = () => {
                     target.style.display = 'none';
                     const parent = target.parentElement;
                     if (parent) {
-                      parent.innerHTML = '<div class="text-center space-y-4"><div class="text-muted-foreground">Демо временно недоступно</div><div class="text-sm text-muted-foreground/70">Файл слишком большой (37.7 MB)</div></div>';
+                      parent.innerHTML = '<div class="text-center space-y-4"><div class="text-muted-foreground">Демо временно недоступно</div><div class="text-sm text-muted-foreground/70">Файл слишком большой (25 MB)</div></div>';
                     }
                   }}
                   onLoad={(e) => {
@@ -102,7 +102,7 @@ const Hero = () => {
                   <div className="text-center space-y-4">
                     <div className="animate-spin w-8 h-8 border-2 border-primary border-t-transparent rounded-full mx-auto"></div>
                     <p className="text-muted-foreground">Загрузка демо...</p>
-                    <p className="text-xs text-muted-foreground/70">37.7 MB • Это может занять время</p>
+                    <p className="text-xs text-muted-foreground/70">25 MB • Это может занять время</p>
                   </div>
                 </div>
               </div>
