@@ -45,7 +45,7 @@ const Hero = () => {
           </p>
           
           {/* Subtitle */}
-          <p className="text-lg md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 md:px-0">
+          <p className="text-lg md:text-2xl text-foreground max-w-3xl mx-auto leading-relaxed px-4 md:px-0">
             {t.hero.subtitle}
           </p>
           
