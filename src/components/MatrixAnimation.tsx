@@ -139,7 +139,7 @@ const MatrixAnimation = () => {
         className="fixed inset-0"
         style={{ 
           pointerEvents: 'none',
-          opacity: 0.35,
+          opacity: 0.25,
           zIndex: -1
         }}
       />
