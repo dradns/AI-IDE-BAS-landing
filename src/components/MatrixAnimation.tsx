@@ -43,7 +43,7 @@ const MatrixAnimation = () => {
       time += 0.01;
       
       // Clear canvas with slight fade effect
-      ctx.fillStyle = 'rgba(249, 250, 251, 0.05)';
+      ctx.fillStyle = 'rgba(240, 248, 252, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.font = `bold ${fontSize}px 'Courier New', monospace`;
@@ -94,14 +94,14 @@ const MatrixAnimation = () => {
           
           let opacity = Math.max(0.1, (1 - distanceFromHead * 0.1) * verticalFade);
           
-          // Brightest at the head - еще светлее
+          // Brightest at the head - морские оттенки
           if (distanceFromHead < 1) {
             opacity = opacity;
-            ctx.fillStyle = `hsla(245, 85%, 90%, ${opacity})`; // Bright primary +15% lightness
+            ctx.fillStyle = `hsla(195, 85%, 60%, ${opacity})`; // Яркий морской бирюзовый
           } else if (distanceFromHead < 3) {
-            ctx.fillStyle = `hsla(185, 85%, 75%, ${opacity})`; // Accent +20% lightness
+            ctx.fillStyle = `hsla(190, 70%, 50%, ${opacity})`; // Темнее бирюзовый
           } else {
-            ctx.fillStyle = `hsla(245, 75%, 85%, ${opacity * 0.6})`; // Dimmer primary +20% lightness
+            ctx.fillStyle = `hsla(200, 60%, 40%, ${opacity * 0.6})`; // Темно-морской
           }
           
           if (y > 0 && y < canvas.height + fontSize) {
@@ -147,7 +147,7 @@ const MatrixAnimation = () => {
       <div 
         className="fixed inset-0 pointer-events-none"
         style={{
-          background: 'linear-gradient(to bottom, transparent 0%, transparent 40%, rgba(249, 250, 251, 0.3) 60%, rgba(249, 250, 251, 0.7) 80%, rgba(249, 250, 251, 1) 100%)',
+          background: 'linear-gradient(to bottom, transparent 0%, transparent 40%, rgba(240, 248, 252, 0.3) 60%, rgba(240, 248, 252, 0.7) 80%, rgba(240, 248, 252, 1) 100%)',
           zIndex: -1
         }}
       />
