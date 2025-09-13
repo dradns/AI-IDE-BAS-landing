@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Users, Code, Building, Eye, Palette, User } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { translations } from "@/lib/translations";
@@ -43,6 +44,7 @@ const Modes = () => {
   const { language } = useLanguage();
   const t = translations[language];
   const [selectedMode, setSelectedMode] = useState("business-analyst");
+  const [designerDialogOpen, setDesignerDialogOpen] = useState(false);
 
   const modeNames = [
     t.modes.businessAnalyst,
@@ -282,9 +284,33 @@ title Gantt Chart - AI IDE BAS Project
               </div>
               
               <div className="bg-muted/50 rounded-lg p-6 border border-border/50">
-                <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
-                  {exampleCode}
-                </pre>
+                {selectedMode === "designer" ? (
+                  <Dialog open={designerDialogOpen} onOpenChange={setDesignerDialogOpen}>
+                    <DialogTrigger asChild>
+                      <div className="cursor-pointer hover:opacity-80 transition-opacity">
+                        <img 
+                          src="/designer.gif" 
+                          alt="Designer workflow animation" 
+                          className="w-full h-48 object-cover rounded-lg"
+                        />
+                        <p className="text-center text-sm text-muted-foreground mt-2">
+                          {language === 'ru' ? 'Нажмите для просмотра в полном размере' : 'Click to view full size'}
+                        </p>
+                      </div>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl w-full max-h-[90vh] p-6">
+                      <img 
+                        src="/designer.gif" 
+                        alt="Designer workflow animation" 
+                        className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+                      />
+                    </DialogContent>
+                  </Dialog>
+                ) : (
+                  <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
+                    {exampleCode}
+                  </pre>
+                )}
               </div>
             </div>
           </Card>
