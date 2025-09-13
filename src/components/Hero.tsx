@@ -37,7 +37,7 @@ const Hero = () => {
             </button>
             <button 
               className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity cursor-pointer"
-              onClick={() => window.open('https://marketplace.visualstudio.com/items?itemName=8eton.ai-ide-bas', '_blank')}
+              onClick={() => window.open('https://open-vsx.org/extension/8eton/ai-ide-bas', '_blank')}
             >
               <img src="/windsurf-logo.png" alt="Windsurf" className="w-full h-full object-contain" />
             </button>
