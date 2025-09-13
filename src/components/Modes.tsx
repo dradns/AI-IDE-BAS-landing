@@ -282,9 +282,21 @@ title Gantt Chart - AI IDE BAS Project
               </div>
               
               <div className="bg-muted/50 rounded-lg p-6 border border-border/50">
-                <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
-                  {exampleCode}
-                </pre>
+                {selectedMode === "designer" ? (
+                  <div className="flex justify-center items-center">
+                    <img 
+                      src="/designer.gif" 
+                      alt="Designer mode demonstration"
+                      className="max-w-full h-auto rounded-lg shadow-lg"
+                      style={{ maxHeight: "400px", width: "auto" }}
+                      loading="lazy"
+                    />
+                  </div>
+                ) : (
+                  <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
+                    {exampleCode}
+                  </pre>
+                )}
               </div>
             </div>
           </Card>
