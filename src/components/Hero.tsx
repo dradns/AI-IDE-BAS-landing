@@ -23,9 +23,12 @@ const Hero = () => {
           
           {/* Logos row */}
           <div className="flex items-center justify-center gap-4 md:gap-8 mb-4 md:mb-8">
-            <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
+            <button 
+              className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity cursor-pointer"
+              onClick={() => window.open('https://marketplace.visualstudio.com/items?itemName=8eton.ai-ide-bas', '_blank')}
+            >
               <img src="/vscode-logo.png" alt="VS Code" className="w-full h-full object-contain" />
-            </div>
+            </button>
             <button 
               className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity cursor-pointer"
               onClick={() => window.open('https://open-vsx.org/extension/8eton/ai-ide-bas', '_blank')}
