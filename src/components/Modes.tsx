@@ -5,6 +5,7 @@ import { Users, Code, Building, Eye, Palette, User } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { translations } from "@/lib/translations";
 import { useState } from "react";
+import LazyGif from "@/components/LazyGif";
 
 const modes = [
   {
@@ -282,9 +283,23 @@ title Gantt Chart - AI IDE BAS Project
               </div>
               
               <div className="bg-muted/50 rounded-lg p-6 border border-border/50">
-                <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
-                  {exampleCode}
-                </pre>
+                {selectedMode === "designer" ? (
+                  <div className="space-y-4">
+                    <LazyGif 
+                      src="/designer-demo.gif" 
+                      alt="Демонстрация работы дизайнера" 
+                      className="w-full max-w-md mx-auto"
+                      placeholder="🎨 Загружается демо..."
+                    />
+                    <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
+                      {exampleCode}
+                    </pre>
+                  </div>
+                ) : (
+                  <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
+                    {exampleCode}
+                  </pre>
+                )}
               </div>
             </div>
           </Card>
