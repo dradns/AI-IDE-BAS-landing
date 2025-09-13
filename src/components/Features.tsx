@@ -66,14 +66,14 @@ const Features = () => {
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <Card key={index} className="p-6 shadow-card bg-card/50 backdrop-blur-sm border border-border/50 hover:shadow-glow transition-smooth group">
-                <div className="flex items-start gap-4">
+              <Card key={index} className="p-6 shadow-card bg-card/50 backdrop-blur-sm border border-border/50 hover:shadow-glow transition-smooth group h-full flex flex-col">
+                <div className="flex items-start gap-4 flex-1">
                   <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Icon className={`w-6 h-6 ${feature.color}`} />
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 flex flex-col">
                     <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-foreground leading-relaxed">{feature.description}</p>
+                    <p className="text-foreground leading-relaxed flex-1">{feature.description}</p>
                   </div>
                 </div>
               </Card>
