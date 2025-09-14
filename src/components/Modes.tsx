@@ -48,6 +48,7 @@ const Modes = () => {
   const [businessAnalystDialogOpen, setBusinessAnalystDialogOpen] = useState(false);
   const [systemAnalystDialogOpen, setSystemAnalystDialogOpen] = useState(false);
   const [reviewerDialogOpen, setReviewerDialogOpen] = useState(false);
+  const [projectManagerDialogOpen, setProjectManagerDialogOpen] = useState(false);
 
   const modeNames = [
     t.modes.businessAnalyst,
@@ -390,6 +391,33 @@ title Gantt Chart - AI IDE BAS Project
                         <img 
                           src="/rev.gif" 
                           alt="Reviewer workflow animation" 
+                          className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+                        />
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+                ) : selectedMode === "project-manager" ? (
+                  <div className="space-y-4">
+                    <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
+                      {exampleCode}
+                    </pre>
+                    <Dialog open={projectManagerDialogOpen} onOpenChange={setProjectManagerDialogOpen}>
+                      <DialogTrigger asChild>
+                        <div className="cursor-pointer hover:opacity-80 transition-opacity">
+                          <img 
+                            src="/pm.gif" 
+                            alt="Project manager workflow animation" 
+                            className="w-full h-48 object-cover rounded-lg"
+                          />
+                          <p className="text-center text-sm text-muted-foreground mt-2">
+                            {language === 'ru' ? 'Нажмите для просмотра в полном размере' : 'Click to view full size'}
+                          </p>
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl w-full max-h-[90vh] p-6">
+                        <img 
+                          src="/pm.gif" 
+                          alt="Project manager workflow animation" 
                           className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
                         />
                       </DialogContent>
