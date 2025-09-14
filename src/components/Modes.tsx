@@ -293,7 +293,7 @@ title Gantt Chart - AI IDE BAS Project
                       <DialogTrigger asChild>
                         <div className="cursor-pointer hover:opacity-80 transition-opacity">
                           <img 
-                            src="/designer_edit.gif" 
+                            src="/des.gif" 
                             alt="Designer workflow animation" 
                             className="w-full h-48 object-cover rounded-lg"
                           />
@@ -304,7 +304,7 @@ title Gantt Chart - AI IDE BAS Project
                       </DialogTrigger>
                       <DialogContent className="max-w-4xl w-full max-h-[90vh] p-6">
                         <img 
-                          src="/designer_edit.gif" 
+                          src="/des.gif" 
                           alt="Designer workflow animation" 
                           className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
                         />
