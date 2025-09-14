@@ -254,7 +254,7 @@ title Gantt Chart - AI IDE BAS Project
                 onClick={() => setSelectedMode(mode.id)}
               >
                 <Icon className="w-6 h-6" />
-                <span className="text-sm font-medium leading-tight">Ревьюер</span>
+                <span className="text-sm font-medium leading-tight">{modeNames[index]}</span>
               </Button>
             );
           })}
