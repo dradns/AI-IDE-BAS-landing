@@ -68,7 +68,7 @@ const Modes = () => {
       case "architect":
         return language === 'ru' ? 'Режим архитектора' : 'Architect Mode';
       case "reviewer":
-        return language === 'ru' ? 'Режим ревьювера' : 'Reviewer Mode';
+        return language === 'ru' ? 'Режим ревьюера' : 'Reviewer Mode';
       case "designer":
         return language === 'ru' ? 'Режим дизайнера' : 'Designer Mode';
       case "project-manager":
@@ -254,7 +254,7 @@ title Gantt Chart - AI IDE BAS Project
                 onClick={() => setSelectedMode(mode.id)}
               >
                 <Icon className="w-6 h-6" />
-                <span className="text-sm font-medium leading-tight">{modeNames[index]}</span>
+                <span className="text-sm font-medium leading-tight">Ревьюер</span>
               </Button>
             );
           })}
