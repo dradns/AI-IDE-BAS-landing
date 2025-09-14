@@ -68,7 +68,7 @@ const Modes = () => {
       case "architect":
         return language === 'ru' ? 'Режим архитектора' : 'Architect Mode';
       case "reviewer":
-        return language === 'ru' ? 'Режим ревьювера' : 'Reviewer Mode';
+        return language === 'ru' ? 'Режим ревьюера' : 'Reviewer Mode';
       case "designer":
         return language === 'ru' ? 'Режим дизайнера' : 'Designer Mode';
       case "project-manager":
