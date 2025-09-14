@@ -22,7 +22,7 @@ export const translations = {
       businessAnalyst: 'Бизнес-аналитик',
       systemAnalyst: 'Системный аналитик',
       architect: 'Архитектор',
-      reviewer: 'Ревьювер',
+      reviewer: 'Ревьюер',
       designer: 'Дизайнер',
       projectManager: 'Проект-менеджер',
       features: [
