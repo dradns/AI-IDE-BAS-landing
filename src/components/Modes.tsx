@@ -51,17 +51,17 @@ const Modes = () => {
   const getModeTitle = (modeId: string) => {
     switch (modeId) {
       case "business-analyst":
-        return language === 'ru' ? 'Режим бизнес-аналитика' : 'Business Analyst Mode';
+        return language === 'ru' ? 'Бизнес-аналитик' : 'Business Analyst';
       case "system-analyst":
-        return language === 'ru' ? 'Режим системного аналитика' : 'System Analyst Mode';
+        return language === 'ru' ? 'Системный аналитик' : 'System Analyst';
       case "architect":
-        return language === 'ru' ? 'Режим архитектора' : 'Architect Mode';
+        return language === 'ru' ? 'Архитектор' : 'Architect';
       case "reviewer":
-        return language === 'ru' ? 'Режим ревьюера' : 'Reviewer Mode';
+        return language === 'ru' ? 'Ревьюер' : 'Reviewer';
       case "designer":
-        return language === 'ru' ? 'Режим дизайнера' : 'Designer Mode';
+        return language === 'ru' ? 'Дизайнер' : 'Designer';
       case "project-manager":
-        return language === 'ru' ? 'Режим проектного менеджера' : 'Project Manager Mode';
+        return language === 'ru' ? 'Проектный менеджер' : 'Project Manager';
       default:
         return '';
     }
