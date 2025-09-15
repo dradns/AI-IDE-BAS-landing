@@ -15,7 +15,7 @@ const modes = [{
 }, {
   id: "architect",
   icon: Building,
-  gifSrc: null
+  gifSrc: "/sa.gif"
 }, {
   id: "reviewer",
   icon: Eye,
@@ -219,8 +219,8 @@ title Gantt Chart - AI IDE BAS Project
           const Icon = mode.icon;
           const features = getModeFeatures(mode.id);
           const exampleCode = getExampleCode(mode.id);
-          return <Card key={mode.id} className={`p-6 md:p-8 shadow-card bg-card/50 backdrop-blur-sm border border-border/50 ${mode.id !== 'architect' ? 'lg:h-[400px]' : ''}`}>
-                <div className={`flex flex-col lg:grid lg:grid-cols-2 gap-6 md:gap-8 ${mode.id !== 'architect' ? 'lg:items-center lg:h-full' : 'lg:items-start'}`}>
+          return <Card key={mode.id} className="p-6 md:p-8 shadow-card bg-card/50 backdrop-blur-sm border border-border/50 lg:h-[400px]">
+                <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 md:gap-8 lg:items-center lg:h-full">
                   <div>
                     <div className="flex items-center gap-3 mb-6">
                       <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
@@ -256,7 +256,6 @@ title Gantt Chart - AI IDE BAS Project
                         <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
                           {exampleCode}
                         </pre>
-                        {mode.id === "architect"}
                       </div>}
                   </div>
                 </div>
