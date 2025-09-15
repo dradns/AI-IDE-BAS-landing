@@ -219,8 +219,8 @@ title Gantt Chart - AI IDE BAS Project
           const Icon = mode.icon;
           const features = getModeFeatures(mode.id);
           const exampleCode = getExampleCode(mode.id);
-          return <Card key={mode.id} className="p-8 shadow-card bg-card/50 backdrop-blur-sm border border-border/50">
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
+          return <Card key={mode.id} className={`p-8 shadow-card bg-card/50 backdrop-blur-sm border border-border/50 ${mode.id !== 'architect' ? 'h-[400px]' : ''}`}>
+                <div className={`grid lg:grid-cols-2 gap-8 ${mode.id !== 'architect' ? 'items-center h-full' : 'items-start'}`}>
                   <div>
                     <div className="flex items-center gap-3 mb-6">
                       <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
