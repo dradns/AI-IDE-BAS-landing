@@ -219,7 +219,7 @@ title Gantt Chart - AI IDE BAS Project
           const Icon = mode.icon;
           const features = getModeFeatures(mode.id);
           const exampleCode = getExampleCode(mode.id);
-          return <Card key={mode.id} className={`p-6 md:p-8 shadow-card bg-card/50 backdrop-blur-sm border border-border/50 ${mode.id !== 'architect' ? 'h-[400px]' : ''}`}>
+          return <Card key={mode.id} className={`p-6 md:p-8 shadow-card bg-card/50 backdrop-blur-sm border border-border/50 ${mode.id !== 'architect' ? 'lg:h-[400px]' : ''}`}>
                 <div className={`flex flex-col lg:grid lg:grid-cols-2 gap-6 md:gap-8 ${mode.id !== 'architect' ? 'lg:items-center lg:h-full' : 'lg:items-start'}`}>
                   <div>
                     <div className="flex items-center gap-3 mb-6">
@@ -242,7 +242,7 @@ title Gantt Chart - AI IDE BAS Project
                         <Dialog open={dialogStates[mode.id]} onOpenChange={isOpen => setDialogOpen(mode.id, isOpen)}>
                           <DialogTrigger asChild>
                             <div className="cursor-pointer hover:opacity-80 transition-opacity">
-                              <img src={mode.gifSrc} alt={`${mode.id} workflow animation`} className="w-full h-48 object-cover rounded-lg" />
+                              <img src={mode.gifSrc} alt={`${mode.id} workflow animation`} className="w-full h-32 md:h-48 object-cover rounded-lg" />
                               <p className="text-center text-sm text-muted-foreground mt-2">
                                 {language === 'ru' ? 'Нажмите для просмотра в полном размере' : 'Click to view full size'}
                               </p>
