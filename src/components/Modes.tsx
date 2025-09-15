@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Users, Code, Building, Eye, Palette, User } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -11,53 +9,50 @@ const modes = [
   {
     id: "business-analyst",
     icon: Users,
-    color: "bg-primary"
+    gifSrc: "/ba.gif"
   },
   {
     id: "system-analyst",
     icon: Code,
-    color: "bg-primary"
+    gifSrc: "/sa.gif"
   },
   {
     id: "architect",
     icon: Building,
-    color: "bg-primary"
+    gifSrc: null
   },
   {
     id: "reviewer",
     icon: Eye,
-    color: "bg-primary"
+    gifSrc: "/rev.gif"
   },
   {
     id: "designer",
     icon: Palette,
-    color: "bg-primary"
+    gifSrc: "/des.gif"
   },
   {
     id: "project-manager",
     icon: User,
-    color: "bg-primary"
+    gifSrc: "/pm.gif"
   }
 ];
 
 const Modes = () => {
   const { language } = useLanguage();
   const t = translations[language];
-  const [selectedMode, setSelectedMode] = useState("business-analyst");
-  const [designerDialogOpen, setDesignerDialogOpen] = useState(false);
-  const [businessAnalystDialogOpen, setBusinessAnalystDialogOpen] = useState(false);
-  const [systemAnalystDialogOpen, setSystemAnalystDialogOpen] = useState(false);
-  const [reviewerDialogOpen, setReviewerDialogOpen] = useState(false);
-  const [projectManagerDialogOpen, setProjectManagerDialogOpen] = useState(false);
+  const [dialogStates, setDialogStates] = useState({
+    'business-analyst': false,
+    'system-analyst': false,
+    'architect': false,
+    'reviewer': false,
+    'designer': false,
+    'project-manager': false
+  });
 
-  const modeNames = [
-    t.modes.businessAnalyst,
-    t.modes.systemAnalyst, 
-    t.modes.architect,
-    t.modes.reviewer,
-    t.modes.designer,
-    t.modes.projectManager
-  ];
+  const setDialogOpen = (modeId: string, isOpen: boolean) => {
+    setDialogStates(prev => ({ ...prev, [modeId]: isOpen }));
+  };
 
   const getModeTitle = (modeId: string) => {
     switch (modeId) {
@@ -74,7 +69,7 @@ const Modes = () => {
       case "project-manager":
         return language === 'ru' ? 'Режим проектного менеджера' : 'Project Manager Mode';
       default:
-        return t.modes.businessAnalyst;
+        return '';
     }
   };
 
@@ -93,22 +88,15 @@ const Modes = () => {
       case "project-manager":
         return t.modes.projectManagerFeatures;
       default:
-        return t.modes.features;
+        return [];
     }
   };
 
-  const getModeIcon = (modeId: string) => {
-    const mode = modes.find(m => m.id === modeId);
-    return mode ? mode.icon : Users;
-  };
-
-  const getModeColor = (modeId: string) => {
-    return "bg-primary";
-  };
-
-  const exampleCode = selectedMode === "business-analyst" 
-    ? (language === 'ru' 
-      ? `# US-XXX: [Краткое название функциональности]
+  const getExampleCode = (modeId: string) => {
+    switch (modeId) {
+      case "business-analyst":
+        return language === 'ru' 
+          ? `# US-XXX: [Краткое название функциональности]
 
 Как <роль пользователя>,
 я хочу <желаемое действие/функциональность>,
@@ -118,7 +106,7 @@ const Modes = () => {
 - [ ] Пользователь может выполнить действие
 - [ ] Система обрабатывает запрос корректно
 - [ ] Результат соответствует ожиданиям`
-      : `# US-XXX: [Short functionality title]
+          : `# US-XXX: [Short functionality title]
 
 As a <user role>,
 I want <desired action/functionality>,
@@ -127,10 +115,10 @@ so that <expected result/benefit>.
 ## Acceptance Criteria
 - [ ] User can perform the action
 - [ ] System processes the request correctly
-- [ ] Result meets expectations`)
-    : selectedMode === "system-analyst" 
-    ? (language === 'ru'
-      ? `@startuml
+- [ ] Result meets expectations`;
+      case "system-analyst":
+        return language === 'ru'
+          ? `@startuml
 title Процесс установки расширения AI IDE BAS
 
 actor Пользователь
@@ -140,7 +128,7 @@ participant "VS Code" as VSCode
 VSCode -> VSCode: Устанавливает расширение
 VSCode -> Пользователь: Дает суперсилу
 @enduml`
-      : `@startuml
+          : `@startuml
 title AI IDE BAS Extension Installation Process
 
 actor User
@@ -149,10 +137,10 @@ participant "VS Code" as VSCode
 User -> VSCode: Clicks "Install"
 VSCode -> VSCode: Installs extension
 VSCode -> User: Gives superpower
-@enduml`)
-    : selectedMode === "architect"
-    ? (language === 'ru'
-      ? `@startuml
+@enduml`;
+      case "architect":
+        return language === 'ru'
+          ? `@startuml
 title Архитектура системы
 
 package "Frontend" {
@@ -170,7 +158,7 @@ database "Database" {
   [PostgreSQL]
 }
 @enduml`
-      : `@startuml
+          : `@startuml
 title System Architecture
 
 package "Frontend" {
@@ -187,33 +175,33 @@ package "Backend" {
 database "Database" {
   [PostgreSQL]
 }
-@enduml`)
-    : selectedMode === "reviewer"
-    ? (language === 'ru'
-      ? `**Проверка логической целостности:**
+@enduml`;
+      case "reviewer":
+        return language === 'ru'
+          ? `**Проверка логической целостности:**
 - [ ] AS IS логически предшествует TO BE
 - [ ] Роли соответствуют реальным участникам процесса
 - [ ] Действия выполнимы в рамках предметной области
 - [ ] Результаты достижимы и измеримы
 
 **Статус:** ✅ Требования корректны`
-      : `**Logical integrity check:**
+          : `**Logical integrity check:**
 - [ ] AS IS logically precedes TO BE
 - [ ] Roles correspond to real process participants
 - [ ] Actions are feasible within the domain
 - [ ] Results are achievable and measurable
 
-**Status:** ✅ Requirements are correct`)
-    : selectedMode === "designer"
-    ? `Header
+**Status:** ✅ Requirements are correct`;
+      case "designer":
+        return `Header
 ==================
 [Logo] [Menu] [Search] [User]
 
 Main Content Area
-==================`
-    : selectedMode === "project-manager"
-    ? (language === 'ru'
-      ? `@startuml
+==================`;
+      case "project-manager":
+        return language === 'ru'
+          ? `@startuml
 title Диаграмма Ганта - Проект AI IDE BAS
 
 [Анализ требований] starts 2025-01-01 and lasts 14 days
@@ -222,7 +210,7 @@ title Диаграмма Ганта - Проект AI IDE BAS
 [Тестирование] starts 2025-03-07 and lasts 14 days
 [Внедрение] starts 2025-03-21 and lasts 7 days
 @enduml`
-      : `@startuml
+          : `@startuml
 title Gantt Chart - AI IDE BAS Project
 
 [Requirements Analysis] starts 2025-01-01 and lasts 14 days
@@ -230,8 +218,11 @@ title Gantt Chart - AI IDE BAS Project
 [Development] starts 2025-02-05 and lasts 30 days
 [Testing] starts 2025-03-07 and lasts 14 days
 [Deployment] starts 2025-03-21 and lasts 7 days
-@enduml`)
-    : `# Default mode`;
+@enduml`;
+      default:
+        return '';
+    }
+  };
 
   return (
     <section id="modes" className="pt-2 pb-20 bg-gradient-to-b from-secondary/10 to-secondary/30 relative z-10">
@@ -242,195 +233,78 @@ title Gantt Chart - AI IDE BAS Project
           </h2>
         </div>
         
-        {/* Mode buttons */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16 max-w-4xl mx-auto">
-          {modes.map((mode, index) => {
+        {/* All modes displayed vertically */}
+        <div className="space-y-8 max-w-6xl mx-auto">
+          {modes.map((mode) => {
             const Icon = mode.icon;
+            const features = getModeFeatures(mode.id);
+            const exampleCode = getExampleCode(mode.id);
+            
             return (
-              <Button
-                key={mode.id}
-                variant={selectedMode === mode.id ? "default" : "outline"}
-                className="p-4 h-auto flex-col gap-2 text-center"
-                onClick={() => setSelectedMode(mode.id)}
-              >
-                <Icon className="w-6 h-6" />
-                <span className="text-sm font-medium leading-tight">{modeNames[index]}</span>
-              </Button>
+              <Card key={mode.id} className="p-8 shadow-card bg-card/50 backdrop-blur-sm border border-border/50">
+                <div className="grid lg:grid-cols-2 gap-8 items-start">
+                  <div>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
+                        <Icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-2xl font-bold">{getModeTitle(mode.id)}</h3>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      {features.map((feature, index) => (
+                        <div key={index} className="flex items-center gap-3">
+                          {mode.id !== "designer" && (
+                            <span className="text-primary font-bold">{index + 1}.</span>
+                          )}
+                          <span className="text-foreground">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="bg-muted/50 rounded-lg p-6 border border-border/50">
+                    {mode.gifSrc ? (
+                      <div className="space-y-4">
+                        <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
+                          {exampleCode}
+                        </pre>
+                        <Dialog open={dialogStates[mode.id]} onOpenChange={(isOpen) => setDialogOpen(mode.id, isOpen)}>
+                          <DialogTrigger asChild>
+                            <div className="cursor-pointer hover:opacity-80 transition-opacity">
+                              <img 
+                                src={mode.gifSrc} 
+                                alt={`${mode.id} workflow animation`} 
+                                className="w-full h-48 object-cover rounded-lg"
+                              />
+                            </div>
+                          </DialogTrigger>
+                          <DialogContent className="max-w-4xl w-full max-h-[90vh] p-6">
+                            <img 
+                              src={mode.gifSrc} 
+                              alt={`${mode.id} workflow animation`} 
+                              className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+                            />
+                          </DialogContent>
+                        </Dialog>
+                      </div>
+                    ) : (
+                      <div className="space-y-4">
+                        <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
+                          {exampleCode}
+                        </pre>
+                        {mode.id === "architect" && (
+                          <p className="text-center text-sm text-muted-foreground mt-2">
+                            {language === 'ru' ? 'Нажмите для просмотра в полном размере' : 'Click to view full size'}
+                          </p>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </Card>
             );
           })}
-        </div>
-        
-        {/* Featured mode details */}
-        <div className="max-w-6xl mx-auto">
-          <Card className="p-8 shadow-card bg-card/50 backdrop-blur-sm border border-border/50">
-            <div className="grid lg:grid-cols-2 gap-8 items-start">
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className={`w-12 h-12 rounded-lg ${getModeColor(selectedMode)}/20 flex items-center justify-center`}>
-                    {(() => {
-                      const Icon = getModeIcon(selectedMode);
-                      return <Icon className="w-6 h-6 text-primary" />;
-                    })()}
-                  </div>
-                  <h3 className="text-2xl font-bold">{getModeTitle(selectedMode)}</h3>
-                </div>
-                
-                <div className="space-y-3">
-                  {getModeFeatures(selectedMode).map((feature, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      {selectedMode !== "designer" && (
-                        <span className="text-primary font-bold">{index + 1}.</span>
-                      )}
-                      <span className="text-foreground">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="bg-muted/50 rounded-lg p-6 border border-border/50">
-                {selectedMode === "designer" ? (
-                  <div className="space-y-4">
-                    <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
-                      {exampleCode}
-                    </pre>
-                    <Dialog open={designerDialogOpen} onOpenChange={setDesignerDialogOpen}>
-                      <DialogTrigger asChild>
-                        <div className="cursor-pointer hover:opacity-80 transition-opacity">
-                          <img 
-                            src="/des.gif" 
-                            alt="Designer workflow animation" 
-                            className="w-full h-48 object-cover rounded-lg"
-                          />
-                          <p className="text-center text-sm text-muted-foreground mt-2">
-                            {language === 'ru' ? 'Нажмите для просмотра в полном размере' : 'Click to view full size'}
-                          </p>
-                        </div>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-4xl w-full max-h-[90vh] p-6">
-                        <img 
-                          src="/des.gif" 
-                          alt="Designer workflow animation" 
-                          className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
-                        />
-                      </DialogContent>
-                    </Dialog>
-                  </div>
-                ) : selectedMode === "business-analyst" ? (
-                  <div className="space-y-4">
-                    <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
-                      {exampleCode}
-                    </pre>
-                    <Dialog open={businessAnalystDialogOpen} onOpenChange={setBusinessAnalystDialogOpen}>
-                      <DialogTrigger asChild>
-                        <div className="cursor-pointer hover:opacity-80 transition-opacity">
-                          <img 
-                            src="/ba.gif" 
-                            alt="Business analyst workflow animation" 
-                            className="w-full h-48 object-cover rounded-lg"
-                          />
-                          <p className="text-center text-sm text-muted-foreground mt-2">
-                            {language === 'ru' ? 'Нажмите для просмотра в полном размере' : 'Click to view full size'}
-                          </p>
-                        </div>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-4xl w-full max-h-[90vh] p-6">
-                        <img 
-                          src="/ba.gif" 
-                          alt="Business analyst workflow animation" 
-                          className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
-                        />
-                      </DialogContent>
-                    </Dialog>
-                  </div>
-                ) : selectedMode === "system-analyst" ? (
-                  <div className="space-y-4">
-                    <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
-                      {exampleCode}
-                    </pre>
-                    <Dialog open={systemAnalystDialogOpen} onOpenChange={setSystemAnalystDialogOpen}>
-                      <DialogTrigger asChild>
-                        <div className="cursor-pointer hover:opacity-80 transition-opacity">
-                          <img 
-                            src="/sa.gif" 
-                            alt="System analyst workflow animation" 
-                            className="w-full h-48 object-cover rounded-lg"
-                          />
-                          <p className="text-center text-sm text-muted-foreground mt-2">
-                            {language === 'ru' ? 'Нажмите для просмотра в полном размере' : 'Click to view full size'}
-                          </p>
-                        </div>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-4xl w-full max-h-[90vh] p-6">
-                        <img 
-                          src="/sa.gif" 
-                          alt="System analyst workflow animation" 
-                          className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
-                        />
-                      </DialogContent>
-                    </Dialog>
-                  </div>
-                ) : selectedMode === "reviewer" ? (
-                  <div className="space-y-4">
-                    <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
-                      {exampleCode}
-                    </pre>
-                    <Dialog open={reviewerDialogOpen} onOpenChange={setReviewerDialogOpen}>
-                      <DialogTrigger asChild>
-                        <div className="cursor-pointer hover:opacity-80 transition-opacity">
-                          <img 
-                            src="/rev.gif" 
-                            alt="Reviewer workflow animation" 
-                            className="w-full h-48 object-cover rounded-lg"
-                          />
-                          <p className="text-center text-sm text-muted-foreground mt-2">
-                            {language === 'ru' ? 'Нажмите для просмотра в полном размере' : 'Click to view full size'}
-                          </p>
-                        </div>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-4xl w-full max-h-[90vh] p-6">
-                        <img 
-                          src="/rev.gif" 
-                          alt="Reviewer workflow animation" 
-                          className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
-                        />
-                      </DialogContent>
-                    </Dialog>
-                  </div>
-                ) : selectedMode === "project-manager" ? (
-                  <div className="space-y-4">
-                    <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
-                      {exampleCode}
-                    </pre>
-                    <Dialog open={projectManagerDialogOpen} onOpenChange={setProjectManagerDialogOpen}>
-                      <DialogTrigger asChild>
-                        <div className="cursor-pointer hover:opacity-80 transition-opacity">
-                          <img 
-                            src="/pm.gif" 
-                            alt="Project manager workflow animation" 
-                            className="w-full h-48 object-cover rounded-lg"
-                          />
-                          <p className="text-center text-sm text-muted-foreground mt-2">
-                            {language === 'ru' ? 'Нажмите для просмотра в полном размере' : 'Click to view full size'}
-                          </p>
-                        </div>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-4xl w-full max-h-[90vh] p-6">
-                        <img 
-                          src="/pm.gif" 
-                          alt="Project manager workflow animation" 
-                          className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
-                        />
-                      </DialogContent>
-                    </Dialog>
-                  </div>
-                ) : (
-                  <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
-                    {exampleCode}
-                  </pre>
-                )}
-              </div>
-            </div>
-          </Card>
         </div>
       </div>
     </section>
