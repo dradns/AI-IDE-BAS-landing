@@ -4,42 +4,35 @@ import { Users, Code, Building, Eye, Palette, User } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { translations } from "@/lib/translations";
 import { useState } from "react";
-
-const modes = [
-  {
-    id: "business-analyst",
-    icon: Users,
-    gifSrc: "/ba.gif"
-  },
-  {
-    id: "system-analyst",
-    icon: Code,
-    gifSrc: "/sa.gif"
-  },
-  {
-    id: "architect",
-    icon: Building,
-    gifSrc: null
-  },
-  {
-    id: "reviewer",
-    icon: Eye,
-    gifSrc: "/rev.gif"
-  },
-  {
-    id: "designer",
-    icon: Palette,
-    gifSrc: "/des.gif"
-  },
-  {
-    id: "project-manager",
-    icon: User,
-    gifSrc: "/pm.gif"
-  }
-];
-
+const modes = [{
+  id: "business-analyst",
+  icon: Users,
+  gifSrc: "/ba.gif"
+}, {
+  id: "system-analyst",
+  icon: Code,
+  gifSrc: "/sa.gif"
+}, {
+  id: "architect",
+  icon: Building,
+  gifSrc: null
+}, {
+  id: "reviewer",
+  icon: Eye,
+  gifSrc: "/rev.gif"
+}, {
+  id: "designer",
+  icon: Palette,
+  gifSrc: "/des.gif"
+}, {
+  id: "project-manager",
+  icon: User,
+  gifSrc: "/pm.gif"
+}];
 const Modes = () => {
-  const { language } = useLanguage();
+  const {
+    language
+  } = useLanguage();
   const t = translations[language];
   const [dialogStates, setDialogStates] = useState({
     'business-analyst': false,
@@ -49,11 +42,12 @@ const Modes = () => {
     'designer': false,
     'project-manager': false
   });
-
   const setDialogOpen = (modeId: string, isOpen: boolean) => {
-    setDialogStates(prev => ({ ...prev, [modeId]: isOpen }));
+    setDialogStates(prev => ({
+      ...prev,
+      [modeId]: isOpen
+    }));
   };
-
   const getModeTitle = (modeId: string) => {
     switch (modeId) {
       case "business-analyst":
@@ -72,7 +66,6 @@ const Modes = () => {
         return '';
     }
   };
-
   const getModeFeatures = (modeId: string) => {
     switch (modeId) {
       case "business-analyst":
@@ -91,12 +84,10 @@ const Modes = () => {
         return [];
     }
   };
-
   const getExampleCode = (modeId: string) => {
     switch (modeId) {
       case "business-analyst":
-        return language === 'ru' 
-          ? `# US-XXX: [Краткое название функциональности]
+        return language === 'ru' ? `# US-XXX: [Краткое название функциональности]
 
 Как <роль пользователя>,
 я хочу <желаемое действие/функциональность>,
@@ -105,8 +96,7 @@ const Modes = () => {
 ## Критерии приемки
 - [ ] Пользователь может выполнить действие
 - [ ] Система обрабатывает запрос корректно
-- [ ] Результат соответствует ожиданиям`
-          : `# US-XXX: [Short functionality title]
+- [ ] Результат соответствует ожиданиям` : `# US-XXX: [Short functionality title]
 
 As a <user role>,
 I want <desired action/functionality>,
@@ -117,8 +107,7 @@ so that <expected result/benefit>.
 - [ ] System processes the request correctly
 - [ ] Result meets expectations`;
       case "system-analyst":
-        return language === 'ru'
-          ? `@startuml
+        return language === 'ru' ? `@startuml
 title Процесс установки расширения AI IDE BAS
 
 actor Пользователь
@@ -127,8 +116,7 @@ participant "VS Code" as VSCode
 Пользователь -> VSCode: Нажимает "Установить"
 VSCode -> VSCode: Устанавливает расширение
 VSCode -> Пользователь: Дает суперсилу
-@enduml`
-          : `@startuml
+@enduml` : `@startuml
 title AI IDE BAS Extension Installation Process
 
 actor User
@@ -139,8 +127,7 @@ VSCode -> VSCode: Installs extension
 VSCode -> User: Gives superpower
 @enduml`;
       case "architect":
-        return language === 'ru'
-          ? `@startuml
+        return language === 'ru' ? `@startuml
 title Архитектура системы
 
 package "Frontend" {
@@ -157,8 +144,7 @@ package "Backend" {
 database "Database" {
   [PostgreSQL]
 }
-@enduml`
-          : `@startuml
+@enduml` : `@startuml
 title System Architecture
 
 package "Frontend" {
@@ -177,15 +163,13 @@ database "Database" {
 }
 @enduml`;
       case "reviewer":
-        return language === 'ru'
-          ? `**Проверка логической целостности:**
+        return language === 'ru' ? `**Проверка логической целостности:**
 - [ ] AS IS логически предшествует TO BE
 - [ ] Роли соответствуют реальным участникам процесса
 - [ ] Действия выполнимы в рамках предметной области
 - [ ] Результаты достижимы и измеримы
 
-**Статус:** ✅ Требования корректны`
-          : `**Logical integrity check:**
+**Статус:** ✅ Требования корректны` : `**Logical integrity check:**
 - [ ] AS IS logically precedes TO BE
 - [ ] Roles correspond to real process participants
 - [ ] Actions are feasible within the domain
@@ -200,8 +184,7 @@ database "Database" {
 Main Content Area
 ==================`;
       case "project-manager":
-        return language === 'ru'
-          ? `@startuml
+        return language === 'ru' ? `@startuml
 title Диаграмма Ганта - Проект AI IDE BAS
 
 [Анализ требований] starts 2025-01-01 and lasts 14 days
@@ -209,8 +192,7 @@ title Диаграмма Ганта - Проект AI IDE BAS
 [Разработка] starts 2025-02-05 and lasts 30 days
 [Тестирование] starts 2025-03-07 and lasts 14 days
 [Внедрение] starts 2025-03-21 and lasts 7 days
-@enduml`
-          : `@startuml
+@enduml` : `@startuml
 title Gantt Chart - AI IDE BAS Project
 
 [Requirements Analysis] starts 2025-01-01 and lasts 14 days
@@ -223,9 +205,7 @@ title Gantt Chart - AI IDE BAS Project
         return '';
     }
   };
-
-  return (
-    <section id="modes" className="pt-2 pb-20 bg-gradient-to-b from-secondary/10 to-secondary/30 relative z-10">
+  return <section id="modes" className="pt-2 pb-20 bg-gradient-to-b from-secondary/10 to-secondary/30 relative z-10">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -235,13 +215,11 @@ title Gantt Chart - AI IDE BAS Project
         
         {/* All modes displayed vertically */}
         <div className="space-y-8 max-w-6xl mx-auto">
-          {modes.map((mode) => {
-            const Icon = mode.icon;
-            const features = getModeFeatures(mode.id);
-            const exampleCode = getExampleCode(mode.id);
-            
-            return (
-              <Card key={mode.id} className="p-8 shadow-card bg-card/50 backdrop-blur-sm border border-border/50">
+          {modes.map(mode => {
+          const Icon = mode.icon;
+          const features = getModeFeatures(mode.id);
+          const exampleCode = getExampleCode(mode.id);
+          return <Card key={mode.id} className="p-8 shadow-card bg-card/50 backdrop-blur-sm border border-border/50">
                 <div className="grid lg:grid-cols-2 gap-8 items-start">
                   <div>
                     <div className="flex items-center gap-3 mb-6">
@@ -252,63 +230,40 @@ title Gantt Chart - AI IDE BAS Project
                     </div>
                     
                     <div className="space-y-3">
-                      {features.map((feature, index) => (
-                        <div key={index} className="flex items-center gap-3">
-                          {mode.id !== "designer" && (
-                            <span className="text-primary font-bold">{index + 1}.</span>
-                          )}
+                      {features.map((feature, index) => <div key={index} className="flex items-center gap-3">
+                          {mode.id !== "designer" && <span className="text-primary font-bold">{index + 1}.</span>}
                           <span className="text-foreground">{feature}</span>
-                        </div>
-                      ))}
+                        </div>)}
                     </div>
                   </div>
                   
                   <div className="bg-muted/50 rounded-lg p-6 border border-border/50">
-                    {mode.gifSrc ? (
-                      <div className="space-y-4">
-                        <Dialog open={dialogStates[mode.id]} onOpenChange={(isOpen) => setDialogOpen(mode.id, isOpen)}>
+                    {mode.gifSrc ? <div className="space-y-4">
+                        <Dialog open={dialogStates[mode.id]} onOpenChange={isOpen => setDialogOpen(mode.id, isOpen)}>
                           <DialogTrigger asChild>
                             <div className="cursor-pointer hover:opacity-80 transition-opacity">
-                              <img 
-                                src={mode.gifSrc} 
-                                alt={`${mode.id} workflow animation`} 
-                                className="w-full h-48 object-cover rounded-lg"
-                              />
+                              <img src={mode.gifSrc} alt={`${mode.id} workflow animation`} className="w-full h-48 object-cover rounded-lg" />
                               <p className="text-center text-sm text-muted-foreground mt-2">
                                 {language === 'ru' ? 'Нажмите для просмотра в полном размере' : 'Click to view full size'}
                               </p>
                             </div>
                           </DialogTrigger>
                           <DialogContent className="max-w-4xl w-full max-h-[90vh] p-6">
-                            <img 
-                              src={mode.gifSrc} 
-                              alt={`${mode.id} workflow animation`} 
-                              className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
-                            />
+                            <img src={mode.gifSrc} alt={`${mode.id} workflow animation`} className="w-full h-auto max-h-[80vh] object-contain rounded-lg" />
                           </DialogContent>
                         </Dialog>
-                      </div>
-                    ) : (
-                      <div className="space-y-4">
+                      </div> : <div className="space-y-4">
                         <pre className="text-sm text-foreground whitespace-pre-wrap overflow-auto">
                           {exampleCode}
                         </pre>
-                        {mode.id === "architect" && (
-                          <p className="text-center text-sm text-muted-foreground mt-2">
-                            {language === 'ru' ? 'Нажмите для просмотра в полном размере' : 'Click to view full size'}
-                          </p>
-                        )}
-                      </div>
-                    )}
+                        {mode.id === "architect"}
+                      </div>}
                   </div>
                 </div>
-              </Card>
-            );
-          })}
+              </Card>;
+        })}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Modes;
