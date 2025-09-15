@@ -229,7 +229,7 @@ title Gantt Chart - AI IDE BAS Project
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            {t.modes.title}
+            {t.modes.title.replace('AI IDE BAS', '')} <span className="text-gradient">AI IDE BAS</span>
           </h2>
         </div>
         
