@@ -51,9 +51,6 @@ const Features = () => {
     <section id="features" className="py-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4 px-4 py-2">
-            {t.features.badge}
-          </Badge>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             {t.features.title} <span className="text-gradient">AI IDE BAS</span>
           </h2>
