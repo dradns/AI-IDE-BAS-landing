@@ -163,7 +163,7 @@ export const translations = {
         'Project support engineer review'
       ],
       designerFeatures: [
-        'Prototype (mockup, wireframe)'
+        'Prototype creation (mockup, wireframe)'
       ],
       projectManagerFeatures: [
         'Sprint backlog formation',
