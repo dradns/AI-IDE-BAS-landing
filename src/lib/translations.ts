@@ -35,7 +35,7 @@ export const translations = {
       ],
       systemAnalystFeatures: [
         'Описание backend логики',
-        'Создание ER-диаграммы',
+        'ER-диаграмма',
         'Создание Sequence диаграммы',
         'Создание спецификации в формате OpenAPI',
         'Создание спецификации в формате AsyncAPI',
