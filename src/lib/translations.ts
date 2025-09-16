@@ -153,8 +153,8 @@ export const translations = {
         'Non-functional requirements creation'
       ],
       architectFeatures: [
-        'Context diagram',
-        'Component diagram'
+        'Context diagram creation',
+        'Component diagram creation'
       ],
       reviewerFeatures: [
         'Project quality review for business and system analyst requirements and artifacts',
