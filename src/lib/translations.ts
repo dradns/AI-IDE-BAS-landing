@@ -79,7 +79,7 @@ export const translations = {
       },
       flexibleConfig: {
         title: 'Гибкая настройка',
-        description: 'Настройте режимы в соответствии с потребностями вашего проекта'
+        description: 'Настройте режимы и шаблоны в соответствии с потребностями вашего проекта'
       },
       teamCollaboration: {
         title: 'Командная работа',
