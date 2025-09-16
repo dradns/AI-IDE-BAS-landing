@@ -55,7 +55,7 @@ const Features = () => {
             {t.features.title} <span className="text-gradient">AI IDE BAS</span>
           </h2>
           <p className="text-xl text-foreground max-w-3xl mx-auto">
-            {t.features.subtitle}
+            <span dangerouslySetInnerHTML={{ __html: t.features.subtitle }} />
           </p>
         </div>
         
