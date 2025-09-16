@@ -175,7 +175,7 @@ export const translations = {
     features: {
       badge: 'Platform Features',
       title: 'Why Choose',
-      subtitle: 'Modern AI technologies for automating documentation, visualizing requirements and accelerating routine processes right in VS Code',
+      subtitle: 'Modern AI technologies for automating documentation, visualizing requirements and accelerating routine processes right in <br /><strong>VS Code / Cursor / WindSurf</strong>',
       llmChoice: {
         title: 'Any LLM Choice',
         description: 'Integration with LLM via your API key'
