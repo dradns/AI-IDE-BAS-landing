@@ -66,7 +66,7 @@ export const translations = {
       title: 'Почему выбирают',
       subtitle: 'Современные технологии ИИ для автоматизации документации, визуализации требований и ускорения рутинных процессов прямо в VS Code',
       llmChoice: {
-        title: 'Любой выбор LLM',
+        title: 'Выбор любой LLM',
         description: 'Интеграция с LLM через ваш API ключ'
       },
       timeSavings: {
