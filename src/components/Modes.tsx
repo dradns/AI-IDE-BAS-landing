@@ -55,7 +55,7 @@ const Modes = () => {
       case "system-analyst":
         return language === 'ru' ? 'Системный аналитик' : 'System Analyst';
       case "architect":
-        return language === 'ru' ? 'Архитектор решений' : 'Solution Architect';
+        return language === 'ru' ? 'Архитектор' : 'Solution Architect';
       case "reviewer":
         return language === 'ru' ? 'Ревьюер' : 'Reviewer';
       case "designer":
