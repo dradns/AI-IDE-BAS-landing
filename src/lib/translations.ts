@@ -177,8 +177,8 @@ export const translations = {
       title: 'Why Choose',
       subtitle: 'Modern AI technologies for automating documentation, visualizing requirements and accelerating routine processes right in <br /><strong>VS Code / Cursor / WindSurf</strong>',
       llmChoice: {
-        title: 'Any LLM Choice',
-        description: 'Integration with LLM via your API key'
+        title: 'Choose Any LLM',
+        description: 'Integration with any LLM via your API key'
       },
       timeSavings: {
         title: 'Time Savings',
