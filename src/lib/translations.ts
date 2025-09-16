@@ -52,7 +52,7 @@ export const translations = {
         'Проверка проекта инженером поддержки'
       ],
       designerFeatures: [
-        'Прототип (мокап, wireframe)'
+        'Создание прототипа (мокап, wireframe)'
       ],
       projectManagerFeatures: [
         'Формирование бэклога спринта',
