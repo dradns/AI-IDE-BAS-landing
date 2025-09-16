@@ -26,7 +26,7 @@ export const translations = {
       designer: 'Дизайнер',
       projectManager: 'Проект-менеджер',
       features: [
-        'Пользовательские истории',
+        'Создание User Story',
         'Сценарии использования',
         'Создание диаграммы активности PlantUML',
         'Критерии приемки',
