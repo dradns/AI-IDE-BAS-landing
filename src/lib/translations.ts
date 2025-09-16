@@ -137,10 +137,10 @@ export const translations = {
       designer: 'Designer Mode',
       projectManager: 'Project Manager Mode',
       features: [
-        'User Stories Creation',
-        'Use Cases Creation',
+        'User Stories creation',
+        'Use Cases creation',
         'Activity Diagram in PlantUML format',
-        'Acceptance Criteria Formation',
+        'Acceptance Criteria formation',
         'Project glossary formation',
         'Project stakeholder information gathering'
       ],
