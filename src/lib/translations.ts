@@ -190,7 +190,7 @@ export const translations = {
       },
       flexibleConfig: {
         title: 'Flexible Configuration',
-        description: 'Refine modes according to your project needs'
+        description: 'Customize modes and templates according to your project needs'
       },
       teamCollaboration: {
         title: 'Team Collaboration',
