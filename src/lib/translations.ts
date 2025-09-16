@@ -12,7 +12,7 @@ export const translations = {
       title: 'ИИ для аналитиков',
       titleSecond: 'и архитекторов решений',
       extension: 'AI-расширение',
-      subtitle: 'Не пишите документацию вручную — AI IDE BAS сделает это за вас',
+      subtitle: 'Ваш интеллектуальный инструмент для оптимизации работы',
       description: 'для аналитиков и архитекторов решений',
       install: 'Установить AI IDE BAS',
       watchDemo: 'Посмотреть демо'
@@ -123,7 +123,7 @@ export const translations = {
       title: 'AI for Analysts',
       titleSecond: 'and Solution Architects',
       extension: 'AI Extension',
-      subtitle: 'Don\'t write documentation manually — AI IDE BAS will do it for you',
+      subtitle: 'Your intelligent tool for work optimization',
       description: 'for analysts and solution architects',
       install: 'Install AI IDE BAS',
       watchDemo: 'Watch Demo'
