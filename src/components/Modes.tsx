@@ -7,7 +7,7 @@ import { useState } from "react";
 const modes = [{
   id: "business-analyst",
   icon: Users,
-  gifSrc: "/ba.gif"
+  gifSrc: "/ba2.gif"
 }, {
   id: "system-analyst",
   icon: Code,
