@@ -21,6 +21,17 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Keep target .github/workflows
+        run: |
+          git remote remove teamlead_read 2>/dev/null || true
+          git remote add    teamlead_read https://github.com/${{ env.TARGET_REPO }}.git
+          git fetch teamlead_read main --depth=1 || true
+          git checkout teamlead_read/main -- .github/workflows 2>/dev/null || true
+          if ! git diff --quiet; then
+            git add .github/workflows
+            git commit -m "chore: keep target workflows"
+          fi
+
       - name: Push to team lead repo (main → main)
         env:
           TARGET_TOKEN: ${{ secrets.DRADNS_PAT }}
@@ -29,6 +40,8 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git remote remove teamlead 2>/dev/null || true
-          git remote add teamlead "https://x-access-token:${TARGET_TOKEN}@github.com/${TARGET_REPO}.git"
+          git remote add teamlead "https://x-access-token:${TARGET_TOKEN}@github.com/${{ env.TARGET_REPO }}.git"
           git remote -v | sed 's/x-access-token:.*@/x-access-token:***@/'
-          git push teamlead HEAD:main --force
+          git push teamlead HEAD:main
+          # жёсткая синхронизация (опционально):
+          # git push teamlead HEAD:main --force
