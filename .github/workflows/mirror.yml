@@ -18,7 +18,7 @@ jobs:
 
       - name: Push to team lead repo (main → main)
         env:
-          TARGET_TOKEN: ${{ secrets.dradns_pat }}
+          TARGET_TOKEN: ${{ secrets.DRADNS_PAT }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
