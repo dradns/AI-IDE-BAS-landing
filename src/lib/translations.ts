@@ -15,7 +15,8 @@ export const translations = {
       subtitle: 'Ваш интеллектуальный инструмент для оптимизации работы',
       description: 'для аналитиков и архитекторов решений',
       install: 'Установить AI IDE BAS',
-      watchDemo: 'Посмотреть демо'
+      watchDemo: 'Посмотреть демо',
+      guide: 'Гайд: как начать работу'
     },
     modes: {
       title: 'Режимы AI IDE BAS',
@@ -126,7 +127,8 @@ export const translations = {
       subtitle: 'Your intelligent tool for work optimization',
       description: 'for analysts and solution architects',
       install: 'Install AI IDE BAS',
-      watchDemo: 'Watch Demo'
+      watchDemo: 'Watch Demo',
+      guide: 'Guide: how to get started'
     },
     modes: {
       title: 'AI IDE BAS Modes',
